@@ -68,7 +68,7 @@ export const Footer: React.FC = () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13.5px', color: '#6E6E73' }}>
               <div>
                 <div style={{ fontWeight: 600, color: '#1D1D1F', marginBottom: '2px' }}>Corporate Enquiries</div>
-                <div>advisory@valence-risk.com</div>
+                <div>advisory@herrlichgroup.com</div>
               </div>
               <div style={{ marginTop: '6px' }}>
                 <div style={{ fontWeight: 600, color: '#1D1D1F', marginBottom: '2px' }}>Operational Desks</div>

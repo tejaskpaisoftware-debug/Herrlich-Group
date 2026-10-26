@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Shield, Lock, CheckCircle2, Globe2, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Lock, CheckCircle2, Globe2, ArrowRight, ArrowUpRight, Building2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface AboutProps {
@@ -32,28 +32,14 @@ export const About: React.FC<AboutProps> = ({ onOpenConsultation }) => {
   ];
 
   return (
-    <div className="section" style={{ paddingTop: '40px' }}>
+    <div className="section" style={{ paddingTop: '28px' }}>
       <div className="container">
-        {/* Header Breadcrumb / Eyebrow */}
-        <div className="section-header">
-          <div className="eyebrow">
-            <Shield size={14} color="#0071E3" />
-            <span>ORGANIZATIONAL PROFILE</span>
-          </div>
-          <h1 className="section-title">
-            Objective Intelligence for High-Stakes Governance.
-          </h1>
-          <p className="section-subtitle">
-            Herrlich Group was founded to provide corporate leadership, special board committees, and general counsels with unvarnished factual clarity during complex business situations.
-          </p>
-        </div>
-
         {/* Two-Column Editorial Profile */}
         <div className="editorial-split" style={{ marginBottom: '80px' }}>
           <div>
-            <h2 style={{ fontSize: '28px', fontWeight: 700, color: '#1D1D1F', marginBottom: '18px', letterSpacing: '-0.02em' }}>
+            <h1 style={{ fontSize: 'clamp(28px, 3.5vw, 38px)', fontWeight: 750, color: '#1D1D1F', marginBottom: '20px', letterSpacing: '-0.025em', lineHeight: 1.16 }}>
               Bridging Field Investigation and Boardroom Advisory
-            </h2>
+            </h1>
             <p style={{ fontSize: '16px', color: '#6E6E73', lineHeight: 1.65, marginBottom: '20px' }}>
               Modern corporate disputes and integrity risks rarely exist in isolation. A procurement fraud scheme often involves off-the-books entities, electronic record destruction, and cross-border kickbacks. Traditional auditing verifies invoices; investigative forensics traces money, relationships, and digital footprints.
             </p>
@@ -88,33 +74,11 @@ export const About: React.FC<AboutProps> = ({ onOpenConsultation }) => {
               }}
             >
               <img
-                src="/corporate_editorial_glass.jpg"
-                alt="Executive corporate boardroom designed for confidential strategic advisory"
+                src="/IMG_8562.jpg"
+                alt="Herrlich Group Journey and Services Wall"
                 style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
-                width="640"
-                height="360"
+                loading="lazy"
               />
-            </div>
-            <div 
-              style={{
-                position: 'absolute',
-                bottom: '-20px',
-                left: '20px',
-                background: 'rgba(255, 255, 255, 0.88)',
-                backdropFilter: 'blur(20px)',
-                WebkitBackdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255, 255, 255, 0.95)',
-                borderRadius: '16px',
-                padding: '14px 18px',
-                boxShadow: '0 8px 24px rgba(0, 0, 0, 0.08)'
-              }}
-            >
-              <div style={{ fontSize: '13.5px', fontWeight: 650, color: '#1D1D1F' }}>
-                Multi-Disciplinary Forensic Teams
-              </div>
-              <div style={{ fontSize: '11.5px', color: '#6E6E73' }}>
-                Accountants • Technologists • Field Analysts • Legal Specialists
-              </div>
             </div>
           </div>
         </div>
@@ -148,6 +112,152 @@ export const About: React.FC<AboutProps> = ({ onOpenConsultation }) => {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Integrated Group Architecture & Practice Entities */}
+        <div className="editorial-split" style={{ marginBottom: '80px', alignItems: 'center' }}>
+          <div style={{ position: 'relative' }}>
+            <div 
+              style={{
+                borderRadius: '24px',
+                overflow: 'hidden',
+                boxShadow: '0 16px 44px rgba(0, 0, 0, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.9)',
+                background: '#FFFFFF'
+              }}
+            >
+              <img
+                src="/IMG_8563.jpg"
+                alt="Herrlich Group Corporate Practice Entities and Associates Wall"
+                style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div>
+            <div className="eyebrow">
+              <Building2 size={14} color="#0071E3" />
+              <span>GROUP ECOSYSTEM</span>
+            </div>
+            <h2 style={{ fontSize: '30px', fontWeight: 700, color: '#1D1D1F', marginBottom: '16px', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
+              A Unified Ecosystem of Specialized Practices
+            </h2>
+            <p style={{ fontSize: '15.5px', color: '#6E6E73', lineHeight: 1.65, marginBottom: '20px' }}>
+              Our operations combine the specialized capabilities of Herrlich Consulting, Sarang Pandya & Associates, and Secures Dot under one integrated standard of investigative rigor and corporate governance.
+            </p>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '14px', marginBottom: '28px' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                <CheckCircle2 size={18} color="#0071E3" style={{ flexShrink: 0, marginTop: '2px' }} />
+                <div>
+                  <strong style={{ fontSize: '14.5px', color: '#1D1D1F' }}>Herrlich Consulting: </strong>
+                  <span style={{ fontSize: '14px', color: '#6E6E73' }}>Strategic fraud mitigation, forensic audit, and enterprise risk advisory.</span>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                <CheckCircle2 size={18} color="#0071E3" style={{ flexShrink: 0, marginTop: '2px' }} />
+                <div>
+                  <strong style={{ fontSize: '14.5px', color: '#1D1D1F' }}>Sarang Pandya & Associates: </strong>
+                  <span style={{ fontSize: '14px', color: '#6E6E73' }}>Evidentiary review, legal counsel support, and statutory compliance.</span>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                <CheckCircle2 size={18} color="#0071E3" style={{ flexShrink: 0, marginTop: '2px' }} />
+                <div>
+                  <strong style={{ fontSize: '14.5px', color: '#1D1D1F' }}>Secures Dot: </strong>
+                  <span style={{ fontSize: '14px', color: '#6E6E73' }}>Field intelligence gathering, counter-surveillance, and digital integrity checks.</span>
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              className="btn-secondary"
+              onClick={onOpenConsultation}
+            >
+              <span>Engage Our Advisory Group</span>
+              <ArrowUpRight size={14} />
+            </button>
+          </div>
+        </div>
+
+        {/* Operational Infrastructure & Confidential Facilities Showcase */}
+        <div style={{ marginBottom: '80px' }}>
+          <div className="section-header">
+            <div className="eyebrow">
+              <Building2 size={14} color="#0071E3" />
+              <span>HEADQUARTERS & INFRASTRUCTURE</span>
+            </div>
+            <h2 style={{ fontSize: '32px', fontWeight: 700, color: '#1D1D1F', marginBottom: '12px' }}>
+              Purpose-Built for Confidentiality & Analytical Depth
+            </h2>
+            <p className="section-subtitle">
+              Engineered with biometric access controls, isolated consultation suites, and dedicated workstations for institutional corporate advisory.
+            </p>
+          </div>
+
+          <div className="grid-2" style={{ gap: '32px' }}>
+            {/* Facility Card 1 - IMG_8556 */}
+            <div 
+              className="solid-card"
+              style={{
+                borderRadius: '24px',
+                overflow: 'hidden',
+                background: '#FFFFFF',
+                boxShadow: '0 16px 44px rgba(0, 0, 0, 0.07)',
+                border: '1px solid rgba(255, 255, 255, 0.9)'
+              }}
+            >
+              <div className="facility-img-frame">
+                <img
+                  src="/IMG_8556.jpg"
+                  alt="Herrlich Group Advanced Forensic Analysis Workstations"
+                  style={{ objectPosition: 'center 40%' }}
+                  loading="lazy"
+                />
+              </div>
+              <div style={{ padding: '28px 24px' }}>
+                <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#1D1D1F', marginBottom: '8px' }}>
+                  Advanced Analytical Workspaces
+                </h3>
+                <p style={{ fontSize: '14.5px', color: '#6E6E73', lineHeight: 1.6, margin: 0 }}>
+                  High-security digital workstations equipped for forensic document examination, complex financial modeling, and open-source intelligence synthesis.
+                </p>
+              </div>
+            </div>
+
+            {/* Facility Card 2 - IMG_8558 */}
+            <div 
+              className="solid-card"
+              style={{
+                borderRadius: '24px',
+                overflow: 'hidden',
+                background: '#FFFFFF',
+                boxShadow: '0 16px 44px rgba(0, 0, 0, 0.07)',
+                border: '1px solid rgba(255, 255, 255, 0.9)'
+              }}
+            >
+              <div className="facility-img-frame">
+                <img
+                  src="/IMG_8558.jpg"
+                  alt="Herrlich Group Privileged Consultation and Intake Suites"
+                  style={{ objectPosition: 'center 35%' }}
+                  loading="lazy"
+                />
+              </div>
+              <div style={{ padding: '28px 24px' }}>
+                <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#1D1D1F', marginBottom: '8px' }}>
+                  Privileged Consultation Cabins
+                </h3>
+                <p style={{ fontSize: '14.5px', color: '#6E6E73', lineHeight: 1.6, margin: 0 }}>
+                  Acoustically insulated private briefing suites and dedicated intake desks structured for strict non-disclosure and sensitive executive consultations.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 

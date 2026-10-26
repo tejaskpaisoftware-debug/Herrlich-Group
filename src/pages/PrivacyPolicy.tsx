@@ -29,7 +29,7 @@ export const PrivacyPolicy: React.FC = () => {
               1. Non-Disclosure & Privileged Engagement Standard
             </h2>
             <p style={{ fontSize: '15px', color: '#6E6E73', lineHeight: 1.65 }}>
-              All client engagements are conducted under binding mutual non-disclosure covenants. Preliminary inquiries transmitted through this website or directly to our practice partners are treated with strict confidentiality. Valence Advisory never commercializes, resells, or aggregates client data for marketing or advertising purposes.
+              All client engagements are conducted under binding mutual non-disclosure covenants. Preliminary inquiries transmitted through this website or directly to our practice partners are treated with strict confidentiality. Herrlich Group never commercializes, resells, or aggregates client data for marketing or advertising purposes.
             </p>
           </section>
 
@@ -38,7 +38,7 @@ export const PrivacyPolicy: React.FC = () => {
               2. Lawful Basis of Investigative Processing
             </h2>
             <p style={{ fontSize: '15px', color: '#6E6E73', lineHeight: 1.65, marginBottom: '12px' }}>
-              In executing forensic due diligence, fraud risk assessments, and corporate investigations, Valence Advisory operates exclusively within the bounds of applicable statutory law, including the Digital Personal Data Protection Act (DPDP), Indian Information Technology Act, and relevant international data privacy principles.
+              In executing forensic due diligence, fraud risk assessments, and corporate investigations, Herrlich Group operates exclusively within the bounds of applicable statutory law, including the Digital Personal Data Protection Act (DPDP), Indian Information Technology Act, and relevant international data privacy principles.
             </p>
             <p style={{ fontSize: '15px', color: '#6E6E73', lineHeight: 1.65 }}>
               Our evidentiary methodologies rely strictly upon lawful public domain records, regulatory filings, corporate registries, consensual disclosures, and verifiable primary human intelligence.
@@ -71,7 +71,7 @@ export const PrivacyPolicy: React.FC = () => {
               5. Data Protection Officer (DPO) Contact
             </h2>
             <p style={{ fontSize: '15px', color: '#6E6E73', lineHeight: 1.65 }}>
-              For queries regarding institutional data handling or privileged communication protocols, contact our Compliance & Privacy Counsel at <strong>compliance@valence-risk.com</strong>.
+              For queries regarding institutional data handling or privileged communication protocols, contact our Compliance & Privacy Counsel at <strong>compliance@herrlichgroup.com</strong>.
             </p>
           </section>
         </div>

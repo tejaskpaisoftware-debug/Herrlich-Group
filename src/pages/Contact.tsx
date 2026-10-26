@@ -244,7 +244,7 @@ export const Contact: React.FC = () => {
                       style={{ marginTop: '3px' }}
                     />
                     <span style={{ fontSize: '12.5px', color: '#6E6E73', lineHeight: 1.45 }}>
-                      I agree to the processing of this inquiry under Valence Advisory's strict non-disclosure covenant and confirm I am authorized to represent this entity.
+                      I agree to the processing of this inquiry under Herrlich Group's strict non-disclosure covenant and confirm I am authorized to represent this entity.
                     </span>
                   </label>
                   {errors.privacyConsent && <div style={{ color: '#FF3B30', fontSize: '12px', marginTop: '4px' }}>{errors.privacyConsent}</div>}
@@ -274,6 +274,34 @@ export const Contact: React.FC = () => {
 
           {/* Regional Desks & Direct Channels */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            {/* In-Person Advisory Facility Visual */}
+            <div 
+              style={{ 
+                borderRadius: '20px', 
+                overflow: 'hidden', 
+                border: '1px solid rgba(255, 255, 255, 0.9)', 
+                boxShadow: '0 12px 32px rgba(0, 0, 0, 0.06)',
+                background: '#FFFFFF'
+              }}
+            >
+              <div className="contact-facility-img">
+                <img
+                  src="/IMG_8558.jpg"
+                  alt="Herrlich Group Confidential Consultation and Intake Suites"
+                  style={{ objectPosition: 'center 38%' }}
+                  loading="lazy"
+                />
+              </div>
+              <div style={{ padding: '16px 20px' }}>
+                <div style={{ fontSize: '14.5px', fontWeight: 650, color: '#1D1D1F' }}>
+                  Secure In-Person Consultation Cabins
+                </div>
+                <div style={{ fontSize: '12.5px', color: '#6E6E73', marginTop: '4px' }}>
+                  Acoustically shielded executive briefing rooms for privileged client intake.
+                </div>
+              </div>
+            </div>
+
             <div className="solid-card" style={{ padding: '28px', background: '#FFFFFF' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
                 <MapPin size={18} color="#0071E3" />
@@ -311,7 +339,7 @@ export const Contact: React.FC = () => {
                 For high-sensitivity whistleblower evidence dossiers, we provide secure SFTP dropboxes and end-to-end PGP key exchanges upon preliminary partner verification.
               </p>
               <div style={{ fontSize: '13px', fontWeight: 600, color: '#1D1D1F' }}>
-                secure-intake@valence-risk.com
+                intake@herrlichgroup.com
               </div>
             </div>
           </div>

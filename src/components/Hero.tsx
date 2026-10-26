@@ -43,17 +43,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
             </div>
 
             {/* Micro Trust Indicators */}
-            <div 
-              style={{ 
-                marginTop: '36px', 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '24px', 
-                flexWrap: 'wrap',
-                paddingTop: '20px',
-                borderTop: '1px solid rgba(0,0,0,0.06)'
-              }}
-            >
+            <div className="hero-trust-indicators">
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-secondary)' }}>
                 <div style={{ color: '#0071E3' }}>
                   <Lock size={15} />
@@ -73,85 +63,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
           <div style={{ position: 'relative' }}>
             <div className="hero-visual-card">
               <img
-                src="/hero_glass_sculpture.jpg"
-                alt="Liquid glass and titanium monolithic composition representing clarity and structural integrity"
+                src="/cinematic_forensic_investigation_lab.png"
+                alt="Herrlich Group forensic investigation laboratory and operational intelligence center"
                 className="hero-visual-image"
                 width="640"
                 height="480"
                 loading="eager"
               />
-
-              {/* Floating Glass Pill Overlay 1 */}
-              <div 
-                className="hero-floating-pill"
-                style={{
-                  position: 'absolute',
-                  top: '20px',
-                  right: '20px',
-                  background: 'rgba(255, 255, 255, 0.82)',
-                  backdropFilter: 'blur(24px) saturate(180%)',
-                  WebkitBackdropFilter: 'blur(24px) saturate(180%)',
-                  border: '1px solid rgba(255, 255, 255, 0.95)',
-                  borderRadius: 'var(--radius-pill)',
-                  padding: '8px 16px',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.08)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  fontSize: '12px',
-                  fontWeight: 600,
-                  color: '#1D1D1F'
-                }}
-              >
-                <div style={{ width: '8px', height: '8px', borderRadius: '999px', background: '#34C759' }} />
-                <span>Forensic Integrity Protocol</span>
-              </div>
-
-              {/* Floating Glass Stat Overlay 2 */}
-              <div 
-                className="hero-floating-stat"
-                style={{
-                  position: 'absolute',
-                  bottom: '20px',
-                  left: '20px',
-                  right: '20px',
-                  background: 'rgba(255, 255, 255, 0.86)',
-                  backdropFilter: 'blur(28px) saturate(190%)',
-                  WebkitBackdropFilter: 'blur(28px) saturate(190%)',
-                  border: '1px solid rgba(255, 255, 255, 0.95)',
-                  borderRadius: '20px',
-                  padding: '16px 20px',
-                  boxShadow: '0 12px 32px rgba(0, 0, 0, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  gap: '12px'
-                }}
-              >
-                <div>
-                  <div style={{ fontSize: '11px', fontWeight: 650, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#86868B' }}>
-                    Advisory Discipline
-                  </div>
-                  <div style={{ fontSize: '14.5px', fontWeight: 650, color: '#1D1D1F' }}>
-                    Uncompromising Factual Rigor
-                  </div>
-                </div>
-                <div 
-                  style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '999px',
-                    background: '#1D1D1F',
-                    color: '#FFFFFF',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}
-                >
-                  <ShieldCheck size={18} />
-                </div>
-              </div>
             </div>
           </div>
         </div>

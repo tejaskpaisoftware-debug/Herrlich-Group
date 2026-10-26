@@ -179,9 +179,15 @@ button {
   margin-inline: auto;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .container, .container-narrow {
     width: calc(100% - 32px);
+  }
+}
+
+@media (max-width: 400px) {
+  .container, .container-narrow {
+    width: calc(100% - 20px);
   }
 }
 

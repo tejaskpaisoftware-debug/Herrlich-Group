@@ -12,7 +12,8 @@ interface MobileMenuProps {
 
 export const MobileMenu: React.FC<MobileMenuProps> = ({ 
   isOpen, 
-  onClose, 
+  onClose,
+  onOpenConsultation 
 }) => {
   const location = useLocation();
 
@@ -68,7 +69,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
           width: '100%',
           maxWidth: '480px',
           margin: '0 auto',
-          background: 'rgba(255, 255, 255, 0.94)',
+          background: 'rgba(255, 255, 255, 0.95)',
           backdropFilter: 'blur(32px) saturate(180%)',
           WebkitBackdropFilter: 'blur(32px) saturate(180%)',
           border: '1px solid rgba(255, 255, 255, 0.95)',
@@ -83,12 +84,12 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <img 
               src={logoImg} 
               alt="Herrlich Group" 
-              style={{ height: '56px', width: 'auto', objectFit: 'contain', display: 'block' }} 
+              style={{ height: '52px', width: 'auto', objectFit: 'contain', display: 'block' }} 
             />
           </div>
           <button 
@@ -111,7 +112,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
         </div>
 
         {/* Primary Links */}
-        <nav style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+        <nav style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '20px' }}>
           {mainNavItems.map((item) => {
             const isActive = location.pathname === item.href;
             return (
@@ -123,12 +124,12 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  padding: '14px 16px',
-                  borderRadius: '16px',
-                  background: isActive ? 'rgba(0, 0, 0, 0.05)' : 'transparent',
-                  color: isActive ? '#1D1D1F' : '#6E6E73',
+                  padding: '13px 16px',
+                  borderRadius: '14px',
+                  background: isActive ? 'rgba(0, 0, 0, 0.06)' : 'transparent',
+                  color: isActive ? '#1D1D1F' : '#555558',
                   fontWeight: isActive ? 650 : 500,
-                  fontSize: '16px',
+                  fontSize: '15.5px',
                   transition: 'background 150ms ease'
                 }}
               >
@@ -138,6 +139,28 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
             );
           })}
         </nav>
+
+        {/* Action Button & Contact Channel */}
+        <div style={{ paddingTop: '16px', borderTop: '1px solid rgba(0, 0, 0, 0.08)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          {onOpenConsultation && (
+            <button
+              type="button"
+              className="btn-primary"
+              onClick={() => {
+                onClose();
+                onOpenConsultation();
+              }}
+              style={{ width: '100%', padding: '13px', borderRadius: 'var(--radius-pill)', justifyContent: 'center' }}
+            >
+              <span>Request Consultation</span>
+              <ArrowRight size={15} />
+            </button>
+          )}
+
+          <div style={{ textAlign: 'center', fontSize: '12px', color: '#86868B', marginTop: '4px' }}>
+            Privileged Inquiries: <strong style={{ color: '#1D1D1F' }}>intake@herrlichgroup.com</strong>
+          </div>
+        </div>
       </div>
     </div>
   );

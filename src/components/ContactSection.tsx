@@ -118,7 +118,7 @@ export const ContactSection: React.FC = () => {
                   PGP/GPG encrypted electronic communication supported upon request for high-sensitivity matters.
                 </p>
                 <div style={{ fontSize: '13px', fontWeight: 600, color: '#0071E3', marginTop: '6px' }}>
-                  inquiries@valence-advisory.com
+                  inquiries@herrlichgroup.com
                 </div>
               </div>
             </div>

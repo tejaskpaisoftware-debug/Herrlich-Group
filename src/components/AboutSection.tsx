@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, Shield, Eye } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Eye } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
   return (
@@ -9,51 +9,12 @@ export const AboutSection: React.FC = () => {
         <div className="editorial-split">
           {/* Editorial Visual */}
           <div style={{ position: 'relative' }}>
-            <div 
-              style={{ 
-                borderRadius: 'var(--radius-xl)', 
-                overflow: 'hidden', 
-                border: '1px solid rgba(255, 255, 255, 0.9)',
-                boxShadow: '0 16px 44px rgba(0, 0, 0, 0.07)',
-                background: '#FFFFFF'
-              }}
-            >
+            <div className="about-img-frame">
               <img
-                src="/corporate_editorial_glass.jpg"
-                alt="Executive conference boardroom with architectural frosted glass partition"
-                style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
+                src="/IMG_8565.jpg"
+                alt="Herrlich Group meeting and conference facility"
                 loading="lazy"
-                width="640"
-                height="360"
               />
-            </div>
-
-            {/* Subtle Glass Callout */}
-            <div 
-              className="about-glass-badge"
-              style={{
-                position: 'absolute',
-                bottom: '-20px',
-                right: '24px',
-                background: 'rgba(255, 255, 255, 0.88)',
-                backdropFilter: 'blur(24px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(24px) saturate(180%)',
-                border: '1px solid rgba(255, 255, 255, 0.95)',
-                borderRadius: '18px',
-                padding: '16px 20px',
-                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.08)',
-                maxWidth: '280px'
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                <Shield size={16} color="#1D1D1F" />
-                <span style={{ fontSize: '12px', fontWeight: 700, color: '#1D1D1F' }}>
-                  Institutional Independence
-                </span>
-              </div>
-              <p style={{ fontSize: '11.5px', color: '#6E6E73', margin: 0, lineHeight: 1.4 }}>
-                Unbiased evidence gathering structured to withstand board, judicial, and regulatory examination.
-              </p>
             </div>
           </div>
 
