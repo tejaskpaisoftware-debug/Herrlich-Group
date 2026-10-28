@@ -1,126 +1,522 @@
 export interface IndustryItem {
   id: string;
+  number: number;
   title: string;
   iconName: string;
   tagline: string;
   description: string;
-  keyChallenges: string[];
-  engagementTypes: string[];
+  primaryServices: string[];
+  keyChallenges?: string[];
+  engagementTypes?: string[];
 }
+
+export const industryPillars = [
+  {
+    title: 'Industry Focused Approach',
+    iconName: 'Handshake',
+    description: 'Custom investigative and verification frameworks architected around sector-specific operational dependencies and supply chains.',
+  },
+  {
+    title: 'Actionable Intelligence',
+    iconName: 'Lightbulb',
+    description: 'Primary-source, evidentiary findings structured to empower executive leadership with definitive factual clarity.',
+  },
+  {
+    title: 'Risk Mitigation and Compliance',
+    iconName: 'ShieldCheck',
+    description: 'Safeguarding statutory compliance, internal governance controls, and brand integrity against institutional vulnerabilities.',
+  },
+  {
+    title: 'Trusted by Leading Organisations',
+    iconName: 'BarChart3',
+    description: 'Retained by corporate boards, audit committees, legal counsels, and multinational enterprises for high-stakes matters.',
+  },
+];
 
 export const industriesData: IndustryItem[] = [
   {
-    id: 'financial-services',
-    title: 'Banking & Financial Services',
+    id: 'fmcg',
+    number: 1,
+    title: 'FMCG',
+    iconName: 'ShoppingCart',
+    tagline: 'Supply chain transparency, channel integrity, and brand protection.',
+    description: 'High-velocity consumer goods operations face extensive vulnerabilities across multi-tier dealer networks, unauthorized parallel importing, and inventory diversion.',
+    primaryServices: [
+      'Private Investigations',
+      'Asset Tracing',
+      'Employee Reference Checks',
+    ],
+    keyChallenges: [
+      'Parallel distribution leakages and territory infringement',
+      'Counterfeit packaging and lookalike consumer goods in regional markets',
+      'Warehouse inventory misappropriation and phantom stock entries',
+      'Sales-force credential misrepresentation and field collusion',
+    ],
+    engagementTypes: [
+      'Grey market distributor surveillance & stock tracing',
+      'Comprehensive pre-employment background and reference vetting',
+      'Discreet evidentiary investigation into internal pilferage rings',
+      'Asset identification of defaulting distributor networks',
+    ],
+  },
+  {
+    id: 'chemical',
+    number: 2,
+    title: 'Chemical',
+    iconName: 'FlaskConical',
+    tagline: 'Formula protection, raw material vendor integrity, and insider compliance.',
+    description: 'Chemical processing and specialty formulations require impenetrable confidentiality, strict SEBI compliance regarding price-sensitive operational data, and stringent vendor scrutiny.',
+    primaryServices: [
+      'Private Investigations',
+      'Employee Reference Checks',
+      'Vendor Reference Checks',
+      'Asset Tracing',
+      'Prevention of Insider Trading',
+      'Digital Forensics',
+    ],
+    keyChallenges: [
+      'Theft of proprietary chemical synthesis formulations and patents',
+      'Vendor collusion in bulk chemical solvent procurement',
+      'Leakage of unpublished price sensitive earnings or acquisition data',
+      'Subcontractor safety non-compliance and clandestine hazardous disposal',
+    ],
+    engagementTypes: [
+      'Digital device forensics and electronic communication analysis',
+      'SEBI PIT compliance audit and insider information barrier testing',
+      'Vendor background vetting and conflict-of-interest discovery',
+      'Corporate investigation into raw material substitution and diversion',
+    ],
+  },
+  {
+    id: 'automobile',
+    number: 3,
+    title: 'Automobile',
+    iconName: 'Car',
+    tagline: 'OEM supply chain defense, dealership stock audits, and component authenticity.',
+    description: 'Automotive manufacturers maintain vast Tier-1 and Tier-2 supply networks susceptible to counterfeit replacement parts, warranty claims manipulation, and dealership floor inventory fraud.',
+    primaryServices: [
+      'Private Investigations',
+      'Vendor Reference Checks',
+      'Counterfeit Parts Tracking',
+      'Supply Chain Audits',
+    ],
+    keyChallenges: [
+      'Circulation of spurious spare parts damaging OEM reliability reputation',
+      'Warranty fraud involving fictitious service logs and recycled claims',
+      'Dealer financing discrepancies and unverified vehicle stock allocations',
+    ],
+    engagementTypes: [
+      'Supply chain integrity and vendor manufacturing plant audits',
+      'Undercover field inquiry into counterfeit automotive components',
+      'Dealer audit investigation and asset verification',
+    ],
+  },
+  {
+    id: 'engineering',
+    number: 4,
+    title: 'Engineering',
+    iconName: 'Cog',
+    tagline: 'Capital project scrutiny, machinery provenance, and vendor cartel detection.',
+    description: 'Heavy engineering and industrial contracting demand rigorous oversight of high-value equipment tenders, procurement bid rigging, and consultant independence.',
+    primaryServices: [
+      'Procurement Forensics',
+      'Vendor Due Diligence',
+      'Private Investigations',
+      'Asset Tracing',
+    ],
+    keyChallenges: [
+      'Collusive bidding and cartel formation in heavy machinery tenders',
+      'Sub-specification material substitution in critical engineering assemblies',
+      'Equipment diversion and unauthorized private use of industrial machinery',
+    ],
+    engagementTypes: [
+      'Procure-to-pay forensic audits and metadata quotation analysis',
+      'Engineering contractor credential and financial stability verification',
+      'Recovery and tracing of missing capital assets',
+    ],
+  },
+  {
+    id: 'pharmaceuticals',
+    number: 5,
+    title: 'Pharmaceuticals',
+    iconName: 'Pill',
+    tagline: 'Regulatory defensibility, anti-counterfeiting, and clinical ethics.',
+    description: 'Life sciences enterprises require strict adherence to global compliance standards (UCPMP, FCPA), protection against spurious medications, and safeguarding confidential clinical test data.',
+    primaryServices: [
+      'Counterfeit Drug Inquiries',
+      'Vendor Reference Checks',
+      'UPSI Management',
+      'Regulatory Due Diligence',
+    ],
+    keyChallenges: [
+      'Spurious and substandard active pharmaceutical ingredients (APIs)',
+      'Distributor marketing spend kickbacks and ethical non-compliance',
+      'Clinical trial data tampering and early test result leaks',
+    ],
+    engagementTypes: [
+      'Pharma supply chain verification and anti-counterfeiting field ops',
+      'Confidential clinical vendor and research partner diligence',
+      'Digital forensics on proprietary medical patent documentation',
+    ],
+  },
+  {
+    id: 'textiles-apparels',
+    number: 6,
+    title: 'Textiles & Apparels',
+    iconName: 'Shirt',
+    tagline: 'Brand protection, export surplus control, and fabric provenance.',
+    description: 'Textile mills and fashion conglomerates face unauthorized export overrun sales, trademark infringement, and grey-market label replication across domestic and global markets.',
+    primaryServices: [
+      'Brand Protection',
+      'Supply Chain Verification',
+      'Vendor Reference Checks',
+      'Anti-Counterfeiting',
+    ],
+    keyChallenges: [
+      'Unauthorized factory overrun dumping in discount retail markets',
+      'Fabric blend mislabeling and substandard yarn procurement',
+      'Counterfeit designer apparel and forged brand trademark tags',
+    ],
+    engagementTypes: [
+      'Undercover market surveys and counterfeit production unit mapping',
+      'Garment manufacturer and job-worker verification',
+      'Intellectual property enforcement evidentiary documentation',
+    ],
+  },
+  {
+    id: 'power-energy',
+    number: 7,
+    title: 'Power & Energy',
+    iconName: 'Zap',
+    tagline: 'Critical infrastructure oversight, EPC contract audits, and fuel logistics.',
+    description: 'Thermal, renewable, and transmission operations require robust safeguards against fuel pilferage, EPC contractor overbilling, and high-stakes infrastructure sabotage.',
+    primaryServices: [
+      'Infrastructure Integrity',
+      'Asset Tracing',
+      'Whistleblowing Mechanism',
+      'Vendor Audits',
+    ],
+    keyChallenges: [
+      'Coal, oil, and gas transit theft and quality degradation',
+      'EPC contractor variation billing anomalies and unperformed work claims',
+      'Critical transmission equipment vandalism and cable diversion',
+    ],
+    engagementTypes: [
+      'Independent whistleblower intake and triage on regulatory breaches',
+      'EPC vendor milestone verification and forensic invoice reviews',
+      'Physical logistics surveillance and asset security audits',
+    ],
+  },
+  {
+    id: 'retail-business',
+    number: 8,
+    title: 'Retail Business',
+    iconName: 'Store',
+    tagline: 'Store loss prevention, warehouse shrinkage control, and staff vetting.',
+    description: 'Organized retail chains, hypermarkets, and e-commerce fulfillment hubs face continuous inventory shrinkages, point-of-sale skimming, and vendor return fraud.',
+    primaryServices: [
+      'Loss Prevention',
+      'Employee Reference Checks',
+      'Vendor Due Diligence',
+      'Digital Forensics',
+    ],
+    keyChallenges: [
+      'Point-of-sale transaction manipulation and fictitious returns',
+      'Warehouse logistics shrinkage and organized distribution theft rings',
+      'Rapid turnover retail staff background verification failures',
+    ],
+    engagementTypes: [
+      'Comprehensive store loss prevention audits and covert checks',
+      'High-volume employee and store-manager reference checks',
+      'Electronic POS data analytics and anomaly detection',
+    ],
+  },
+  {
+    id: 'entertainment-media',
+    number: 9,
+    title: 'Entertainment & Media',
+    iconName: 'Film',
+    tagline: 'Intellectual property defense, anti-piracy, and revenue accounting.',
+    description: 'Production studios, streaming platforms, and broadcast networks navigate pre-release media theft, digital streaming piracy, and distributor box-office under-reporting.',
+    primaryServices: [
+      'IP Rights Protection',
+      'Anti-Piracy Inquiries',
+      'Digital Forensics',
+      'Financial Audits',
+    ],
+    keyChallenges: [
+      'Pre-release digital footage leaks and distribution server compromise',
+      'Syndicated commercial piracy rings and unauthorized broadcast feeds',
+      'Box-office ticket sales and OTT viewership reporting discrepancies',
+    ],
+    engagementTypes: [
+      'Digital forensics on post-production workflows and leak vectors',
+      'Physical and digital anti-piracy tracking operations',
+      'Distributor audit examination and contractual royalty reviews',
+    ],
+  },
+  {
+    id: 'hospitality',
+    number: 10,
+    title: 'Hospitality',
+    iconName: 'Hotel',
+    tagline: 'Operational procurement hygiene, franchise audits, and guest dispute integrity.',
+    description: 'Luxury hotel chains, resorts, and restaurant groups require rigorous oversight of food & beverage procurement, staff integrity, and impartial grievance mediation.',
+    primaryServices: [
+      'Vendor Due Diligence',
+      'Employee Reference Checks',
+      'Ombudsman Services',
+      'Internal Controls',
+    ],
+    keyChallenges: [
+      'F&B procurement kickbacks and inventory overbilling',
+      'High-turnover frontline and concierge background vetting oversights',
+      'Internal workplace grievances impacting brand reputation',
+    ],
+    engagementTypes: [
+      'Impartial ombudsman dispute resolution for leadership teams',
+      'Key staff integrity screening and background verification',
+      'Food & beverage procurement forensic margin analysis',
+    ],
+  },
+  {
+    id: 'cement',
+    number: 11,
+    title: 'Cement',
+    iconName: 'Hammer',
+    tagline: 'Bulk transport monitoring, distributor quota verification, and packaging defense.',
+    description: 'Heavy construction materials involve complex multimodal logistics prone to transit diversion, unauthorized re-bagging into counterfeit branded sacks, and dealer cartelisation.',
+    primaryServices: [
+      'Logistics & Transit Monitoring',
+      'Vendor Reference Checks',
+      'Private Investigations',
+      'Asset Tracing',
+    ],
+    keyChallenges: [
+      'Transit diversion of bulk cement and adulteration before delivery',
+      'Forged packaging using branded cement company logos',
+      'Dealer ring formation suppressing regional market pricing',
+    ],
+    engagementTypes: [
+      'Transit route monitoring and clandestine depot verification',
+      'Distributor credibility audits and financial background checks',
+      'Investigation of counterfeit bag manufacturers and printers',
+    ],
+  },
+  {
+    id: 'construction',
+    number: 12,
+    title: 'Construction and its allied services',
+    iconName: 'HardHat',
+    tagline: 'Subcontractor verification, real estate title due diligence, and asset preservation.',
+    description: 'Infrastructure and commercial real estate developers face ghost worker billings, raw material specification dilution, and contractor litigation entanglements.',
+    primaryServices: [
+      'Subcontractor Due Diligence',
+      'Procure-to-Pay Forensics',
+      'Asset Verification',
+      'Material Quality Inquiries',
+    ],
+    keyChallenges: [
+      'Inflated subcontractor equipment hire and labor muster roll falsification',
+      'Steel and concrete grade dilution jeopardizing structural safety',
+      'Complex unrecorded encumbrances and title disputes on land acquisitions',
+    ],
+    engagementTypes: [
+      'Comprehensive land parcel title and litigation history mapping',
+      'Subcontractor on-site operational and financial audits',
+      'Site material delivery forensic reconciliation',
+    ],
+  },
+  {
+    id: 'electrical-semiconductor',
+    number: 13,
+    title: 'Electrical Components & Semi Conductor chips',
+    iconName: 'Cpu',
+    tagline: 'Microarchitecture IP protection, counter surveillance (TSCM), and component authenticity.',
+    description: 'High-tech electronics and semiconductor hardware demand total defense against reverse-engineered architecture leaks, industrial bugging, and substandard recycled chips.',
+    primaryServices: [
+      'IP Theft Investigation',
+      'Counter Surveillance (TSCM)',
+      'Digital Forensics',
+      'UPSI Management',
+    ],
+    keyChallenges: [
+      'Exfiltration of proprietary chip schematics and firmware',
+      'Eavesdropping on strategic R&D and clean-room facilities',
+      'Refurbished and counterfeit microcontrollers marketed as prime grade',
+    ],
+    engagementTypes: [
+      'Technical Surveillance Counter-Measures (TSCM) laboratory sweeps',
+      'Deep digital forensic examination of source repositories',
+      'Component provenance investigation across international brokers',
+    ],
+  },
+  {
+    id: 'insurance-banking',
+    number: 14,
+    title: 'Insurance & Banking',
     iconName: 'Landmark',
-    tagline: 'Capital preservation and strict anti-financial crime safeguards.',
-    description: 'Financial institutions operate under intensifying scrutiny from central banks and enforcement authorities. We deliver forensic support for NPA accounts, borrower due diligence, trade finance verification, and AML compliance audits.',
+    tagline: 'Asset tracing, borrower forensic diagnostics, and AML compliance.',
+    description: 'Financial institutions require evidentiary-grade investigations into non-performing assets, borrower offshore entity webs, loan fraud rings, and suspicious transaction patterns.',
+    primaryServices: [
+      'Fraud Risk Assessment',
+      'Borrower Asset Tracing',
+      'Digital Forensics',
+      'Whistleblowing Mechanism',
+    ],
     keyChallenges: [
-      'Wilful defaulter asset obfuscation',
-      'Complex layered trade finance discrepancies',
-      'Fintech vendor data integrity & insider threats',
-      'Regulatory compliance under PMLA and international AML directives'
+      'Wilful corporate defaulter asset shielding behind nominee layers',
+      'Syndicated loan diversion to unstated related-party entities',
+      'Fraudulent insurance claims with forged hospital documentation',
     ],
     engagementTypes: [
-      'Borrower entity forensic reviews',
-      'Anti-Money Laundering diagnostic stress testing',
-      'Pre-sanction high-value credit investigations',
-      'Digital payment leak inquiries'
-    ]
+      'Multi-jurisdictional ultimate beneficial ownership (UBO) asset tracing',
+      'Pre-sanction high-value borrower forensic due diligence',
+      'Independent whistleblowing reporting triage for banking audit boards',
+    ],
   },
   {
-    id: 'technology',
-    title: 'Technology & Digital Platforms',
-    iconName: 'Server',
-    tagline: 'Safeguarding proprietary intellectual property and platform governance.',
-    description: 'High-growth technology companies face rapid workforce expansion, proprietary source-code leak risks, and intricate third-party contractor networks. Our advisory safeguards trade secrets and verifies cross-border development partner integrity.',
+    id: 'environment-treatment',
+    number: 15,
+    title: 'Environment Treatment',
+    iconName: 'Leaf',
+    tagline: 'Waste management compliance, greenwashing risk defense, and vendor audits.',
+    description: 'Environmental management, effluent treatment, and waste-to-energy entities must navigate strict pollution control norms, contractor disposal veracity, and green compliance audits.',
+    primaryServices: [
+      'Regulatory Compliance Review',
+      'Vendor Due Diligence',
+      'Independent Verification',
+      'Field Monitoring',
+    ],
     keyChallenges: [
-      'Unauthorized extraction of source code and proprietary algorithms',
-      'Ghost developer billing and offshore contractor fraud',
-      'Cryptocurrency and digital asset movement tracing',
-      'Platform abuse, syndication rings, and identity spoofing'
+      'Clandestine discharge and unauthorized hazardous waste dumping',
+      'Subcontractor disposal certification forgery',
+      'Greenwashing allegations impacting institutional investor ESG mandates',
     ],
     engagementTypes: [
-      'Digital artifact and code repository forensics',
-      'Offshore vendor integrity audits',
-      'Key engineering hire deep-vetting',
-      'Cryptographic transaction tracing'
-    ]
+      'Independent operational audits of waste treatment plants and logistics',
+      'Disposal contractor legal and operational compliance verification',
+      'Evidentiary documentation for environmental tribunal inquiries',
+    ],
   },
   {
-    id: 'manufacturing',
-    title: 'Manufacturing & Industrial Infrastructure',
-    iconName: 'Factory',
-    tagline: 'Securing multi-tier supply chains, raw material logistics, and plant integrity.',
-    description: 'Industrial enterprises maintain sprawling procurement operations vulnerable to scrap diversion, supplier cartels, kickback arrangements, and warranty counterfeiting.',
+    id: 'telecommunications',
+    number: 16,
+    title: 'Mobile Networks & Telecommunications',
+    iconName: 'Radio',
+    tagline: 'Tower infrastructure security, SIM farm fraud mitigation, and TSCM audits.',
+    description: 'Telecom service providers require rigorous screening for privileged network engineers, investigation into bypass voice fraud/SIM boxes, and RF technical privacy audits.',
+    primaryServices: [
+      'Counter Surveillance (TSCM)',
+      'Digital Forensics',
+      'Cyber Incident Analysis',
+      'Employee Checks',
+    ],
     keyChallenges: [
-      'Vendor collusion and rigged bid submissions',
-      'Theft and diversion of raw material in transit',
-      'Spurious and substandard parts in the replacement supply chain',
-      'Channel partner margin siphon schemes'
+      'Grey-route VoIP bypass and international SIM box toll fraud',
+      'Cellular tower battery and copper cable syndication theft',
+      'Network engineering employee unauthorized subscriber data access',
     ],
     engagementTypes: [
-      'Procure-to-pay forensic audits',
-      'Field surveillance and logistics monitoring',
-      'Grey market and counterfeit product tracking',
-      'Factory floor security and inventory audit'
-    ]
+      'Physical and RF technical surveillance sweeps of network operations centers',
+      'High-security vetting for engineers with core switch access',
+      'Digital forensics on suspicious telecom routing anomalies',
+    ],
   },
   {
-    id: 'healthcare',
-    title: 'Healthcare & Life Sciences',
-    iconName: 'Activity',
-    tagline: 'Regulatory defensibility, distributor ethics, and clinical compliance.',
-    description: 'Pharmaceutical, medical device, and healthcare provider organizations require adherence to anti-bribery standards, distributor oversight, and protection against counterfeit therapeutics.',
+    id: 'aviation',
+    number: 17,
+    title: 'Aviation',
+    iconName: 'Plane',
+    tagline: 'High-security personnel vetting, leased asset inspection, and spare part provenance.',
+    description: 'Commercial airlines, charter operators, and MRO hubs operate under uncompromising security requirements where spare part authenticity and personnel credibility are paramount.',
+    primaryServices: [
+      'High-Sensitivity Background Checks',
+      'Vendor Credential Audits',
+      'Discreet Inquiries',
+      'Asset Tracing',
+    ],
     keyChallenges: [
-      'Distributor marketing practice compliance (UCPMP / FCPA)',
-      'Clinical trial data validation and ethical protocol adherence',
-      'Spurious pharmaceutical products in downstream distribution',
-      'Billing anomalies and insurance third-party administrator fraud'
+      'Bogus or improperly certified aircraft components in MRO channels',
+      'Ground-handling personnel baggage pilferage and security lapses',
+      'Cross-border aircraft lease default and asset recovery complexities',
     ],
     engagementTypes: [
-      'Distributor and marketing spend audits',
-      'Supply chain authenticity testing',
-      'Healthcare provider conflict-of-interest reviews',
-      'Whistleblower triage on regulatory disclosures'
-    ]
+      'Rigorous background checks for airside and technical personnel',
+      'Aircraft lease asset condition and registry verification',
+      'Aviation parts supplier authentication and trace audits',
+    ],
   },
   {
-    id: 'private-equity',
-    title: 'Private Equity & Venture Capital',
-    iconName: 'TrendingUp',
-    tagline: 'Pre-investment clarity and portfolio company governance oversight.',
-    description: 'Investment committees need unvarnished ground intelligence on founder track records, real revenue generation vs fictitious customer bookings, and post-investment governance hygiene.',
+    id: 'education-training',
+    number: 18,
+    title: 'Education & Training',
+    iconName: 'GraduationCap',
+    tagline: 'Credential verification, institutional governance, and ombudsman services.',
+    description: 'Universities, vocational institutes, and ed-tech providers face forged degree credentials, faculty background misrepresentations, and trust procurement leakage.',
+    primaryServices: [
+      'Credential Verification',
+      'Employee Reference Checks',
+      'Ombudsman Frameworks',
+      'Financial Audits',
+    ],
     keyChallenges: [
-      'Fictitious revenue inflation and related-party round-tripping',
-      'Founder track record omissions and prior undisclosed litigations',
-      'Channel stuffing prior to funding milestones',
-      'Portfolio company key employee integrity'
+      'Forged degrees, fake experience letters, and bogus accreditation',
+      'Educational trust fund diversion and procurement inflation',
+      'Student and faculty ethics violations requiring neutral inquiry',
     ],
     engagementTypes: [
-      'Pre-term sheet founder reputation profiling',
-      'Customer and distributor channel reference audits',
-      'Post-acquisition board governance audits',
-      'Special situations dispute investigations'
-    ]
+      'Thorough primary-source academic and employment background checks',
+      'Neutral ombudsman mediation for university leadership and staff',
+      'Institutional procurement and vendor fee forensic reviews',
+    ],
   },
   {
-    id: 'professional-services',
-    title: 'Legal & Professional Services',
-    iconName: 'Scale',
-    tagline: 'Litigation support, independent expert fact-finding, and arbitration research.',
-    description: 'Partnering with general counsels and dispute resolution law firms to establish lawful, documented evidence for courtroom proceedings and international arbitration tribunals.',
+    id: 'gems-jewellery',
+    number: 19,
+    title: 'Gems & Jewellery',
+    iconName: 'Gem',
+    tagline: 'Bullion provenance, transit security intelligence, and high-value asset recovery.',
+    description: 'Precious gemstone traders, bullion dealers, and retail jewelers face hallmarking fraud, artisan metal substitution, artisan workshop theft, and international asset evasion.',
+    primaryServices: [
+      'Asset Tracing',
+      'Covert Market Intelligence',
+      'Supply Chain Provenance',
+      'Private Investigations',
+    ],
     keyChallenges: [
-      'Gathering court-admissible electronic and physical evidence',
-      'Locating hidden counterparty assets in cross-border enforcement',
-      'Witness identification and credibility vetting',
-      'Maintaining unbroken chain of custody'
+      'Artisan gold and diamond substitution during custom jewelry manufacture',
+      'Synthetic diamond mixing with natural certified parcels',
+      'Heist and courier diversion of high-value consignment parcels',
     ],
     engagementTypes: [
-      'Commercial litigation intelligence dossiers',
-      'International arbitration enforcement support',
-      'Independent expert witness evidence preparation',
-      'Anti-counterfeiting enforcement logistics'
-    ]
-  }
+      'Covert market intelligence across regional bullion trading hubs',
+      'Multi-jurisdictional diamond and precious metal recovery tracing',
+      'Discreet investigation into internal boutique and vault discrepancies',
+    ],
+  },
+  {
+    id: 'and-many-more',
+    number: 20,
+    title: 'And Many More…',
+    iconName: 'Sparkles',
+    tagline: 'Bespoke corporate investigations and forensic advisory across specialized domains.',
+    description: 'Herrlich Group routinely architects custom investigative and preventive mandates for family offices, logistics conglomerates, maritime operators, fintech startups, and sovereign wealth entities.',
+    primaryServices: [
+      'Custom Cross-Border Forensics',
+      'Specialized Fact-Finding',
+      'Multi-Jurisdictional Inquiries',
+      'Tailored Scope Execution',
+    ],
+    keyChallenges: [
+      'Unprecedented fraud scenarios spanning multiple jurisdictions',
+      'High-stakes family business disputes and succession asset tracing',
+      'Complex regulatory inquiries requiring strict non-disclosure covenants',
+    ],
+    engagementTypes: [
+      'Bespoke partner-led investigative retainers with air-gapped security',
+      'Multi-jurisdictional intelligence assembly under strict NDA',
+      'Cross-practice integration of preventive and detective methodologies',
+    ],
+  },
 ];

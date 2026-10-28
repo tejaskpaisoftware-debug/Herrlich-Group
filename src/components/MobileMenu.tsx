@@ -158,7 +158,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
           )}
 
           <div style={{ textAlign: 'center', fontSize: '12px', color: '#86868B', marginTop: '4px' }}>
-            Privileged Inquiries: <strong style={{ color: '#1D1D1F' }}>intake@herrlichgroup.com</strong>
+            Privileged Inquiries: <strong style={{ color: '#1D1D1F' }}>contact@herrlichindia.com</strong>
           </div>
         </div>
       </div>

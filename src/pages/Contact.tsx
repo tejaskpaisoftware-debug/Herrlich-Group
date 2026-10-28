@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Mail, MapPin, Lock, Send, CheckCircle2, Loader2 } from 'lucide-react';
+import { Lock, Send, CheckCircle2, Loader2, ShieldCheck } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -7,7 +7,7 @@ export const Contact: React.FC = () => {
     email: '',
     phone: '',
     company: '',
-    serviceCategory: 'Corporate Investigations',
+    serviceCategory: 'Fraud Risk Assessment',
     message: '',
     privacyConsent: false,
   });
@@ -17,7 +17,7 @@ export const Contact: React.FC = () => {
   const [submittedData, setSubmittedData] = useState<{ name: string; refId: string } | null>(null);
 
   useEffect(() => {
-    document.title = 'Confidential Consultation & Office Desks | HERRLICH GROUP';
+    document.title = 'Confidential Consultation | HERRLICH GROUP';
     window.scrollTo(0, 0);
   }, []);
 
@@ -33,12 +33,12 @@ export const Contact: React.FC = () => {
       errs.phone = 'Please enter a valid telephone format';
     }
     if (!formData.message.trim()) {
-      errs.message = 'Please provide preliminary engagement scope';
+      errs.message = 'Please provide preliminary engagement context';
     } else if (formData.message.trim().length < 15) {
-      errs.message = 'Inquiry must be at least 15 characters';
+      errs.message = 'Please provide at least 15 characters describing the scope';
     }
     if (!formData.privacyConsent) {
-      errs.privacyConsent = 'You must confirm confidential triage consent';
+      errs.privacyConsent = 'You must confirm the non-disclosure acknowledgement';
     }
     return errs;
   };
@@ -60,26 +60,26 @@ export const Contact: React.FC = () => {
       setIsSubmitting(false);
       setSubmittedData({
         name: formData.name,
-        refId: 'VAL-' + Math.floor(100000 + Math.random() * 900000),
+        refId: 'HG-' + Math.floor(100000 + Math.random() * 900000),
       });
       setFormData({
         name: '',
         email: '',
         phone: '',
         company: '',
-        serviceCategory: 'Corporate Investigations',
+        serviceCategory: 'Fraud Risk Assessment',
         message: '',
         privacyConsent: false,
       });
-    }, 1000);
+    }, 1200);
   };
 
   return (
-    <div className="section" style={{ paddingTop: '40px' }}>
+    <div className="section" style={{ paddingTop: '36px', paddingBottom: '96px' }}>
       <div className="container">
         {/* Header */}
-        <div className="section-header">
-          <div className="eyebrow">
+        <div className="section-header center" style={{ maxWidth: '720px', margin: '0 auto 48px' }}>
+          <div className="eyebrow" style={{ justifyContent: 'center' }}>
             <Lock size={14} color="#0071E3" />
             <span>PRIVILEGED COMMUNICATIONS</span>
           </div>
@@ -91,9 +91,18 @@ export const Contact: React.FC = () => {
           </p>
         </div>
 
-        <div className="contact-split">
-          {/* Form Card */}
-          <div className="solid-card" style={{ padding: '44px 36px', background: '#FFFFFF' }}>
+        {/* Centered Form Card */}
+        <div style={{ maxWidth: '780px', margin: '0 auto' }}>
+          <div 
+            className="solid-card" 
+            style={{ 
+              padding: 'clamp(28px, 4vw, 44px)', 
+              background: '#FFFFFF',
+              borderRadius: '24px',
+              border: '1px solid rgba(0, 0, 0, 0.08)',
+              boxShadow: '0 16px 44px rgba(0, 0, 0, 0.06)'
+            }}
+          >
             {submittedData ? (
               <div style={{ textAlign: 'center', padding: '36px 16px' }}>
                 <div 
@@ -115,27 +124,33 @@ export const Contact: React.FC = () => {
                   Inquiry Dispatched Successfully
                 </h3>
                 <p style={{ fontSize: '15px', color: '#6E6E73', lineHeight: 1.6, marginBottom: '20px' }}>
-                  Thank you, <strong>{submittedData.name}</strong>. Reference ID: <code>{submittedData.refId}</code>. An engagement partner will reach out directly to your verified email.
+                  Thank you, <strong>{submittedData.name}</strong>. Reference ID: <code>{submittedData.refId}</code>. An engagement partner will reach out directly to your verified email under mutual non-disclosure.
                 </p>
-                <div style={{ background: 'var(--bg-primary)', borderRadius: '12px', padding: '14px', fontSize: '12.5px', color: '#86868B', marginBottom: '24px' }}>
-                  Note: This form executes interactive client validation and demonstrates frontend state dispatch.
-                </div>
                 <button
                   type="button"
                   className="btn-primary"
                   onClick={() => setSubmittedData(null)}
+                  style={{ margin: '0 auto' }}
                 >
                   Submit Another Consultation Request
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate>
-                <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#1D1D1F', marginBottom: '8px' }}>
-                  Engagement Briefing Form
-                </h2>
-                <p style={{ fontSize: '13.5px', color: '#6E6E73', marginBottom: '28px' }}>
-                  All information submitted is protected by confidential non-disclosure privilege.
-                </p>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', flexWrap: 'wrap', gap: '8px' }}>
+                  <div>
+                    <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#1D1D1F', margin: 0 }}>
+                      Engagement Briefing Form
+                    </h2>
+                    <p style={{ fontSize: '13.5px', color: '#6E6E73', margin: '4px 0 0' }}>
+                      All information submitted is protected by confidential non-disclosure privilege.
+                    </p>
+                  </div>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: '#0071E3', background: 'rgba(0, 113, 227, 0.08)', padding: '5px 12px', borderRadius: '999px', fontWeight: 600 }}>
+                    <ShieldCheck size={14} />
+                    <span>Strict NDA Protected</span>
+                  </div>
+                </div>
 
                 <div className="form-row-2">
                   <div>
@@ -146,7 +161,7 @@ export const Contact: React.FC = () => {
                       id="p-name"
                       type="text"
                       className="form-input"
-                      placeholder="e.g. Michael Thorne"
+                      placeholder="e.g. Rahul Sharma"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     />
@@ -161,7 +176,7 @@ export const Contact: React.FC = () => {
                       id="p-email"
                       type="email"
                       className="form-input"
-                      placeholder="m.thorne@enterprise.com"
+                      placeholder="r.sharma@enterprise.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     />
@@ -210,13 +225,30 @@ export const Contact: React.FC = () => {
                     value={formData.serviceCategory}
                     onChange={(e) => setFormData({ ...formData, serviceCategory: e.target.value })}
                   >
-                    <option value="Corporate Investigations">Corporate Investigations</option>
-                    <option value="Forensic Due Diligence">Forensic Due Diligence</option>
-                    <option value="Fraud Risk Assessment">Fraud Risk Assessment</option>
-                    <option value="Background Verification">Background Verification</option>
-                    <option value="Business Intelligence & Asset Tracing">Business Intelligence & Asset Tracing</option>
-                    <option value="Risk Advisory & Digital Forensics">Risk Advisory & Digital Forensics</option>
-                    <option value="Special Situations Dispute Support">Special Situations Dispute Support</option>
+                    <optgroup label="Preventive Forensics">
+                      <option value="Fraud Risk Assessment">Fraud Risk Assessment</option>
+                      <option value="Whistleblowing Mechanism">Whistleblowing Mechanism</option>
+                      <option value="Ombudsman Services">Ombudsman Services</option>
+                      <option value="Employee Reference Check">Employee Reference Check</option>
+                      <option value="Vendor Reference Check">Vendor Reference Check</option>
+                      <option value="Matrimonial Reference Check">Matrimonial Reference Check</option>
+                      <option value="Covert Market Intelligence">Covert Market Intelligence</option>
+                      <option value="UPSI Management">Unpublished Price Sensitive Information (UPSI)</option>
+                      <option value="Prevention of Insider Trading">Prevention of Insider Trading</option>
+                    </optgroup>
+                    <optgroup label="Detective Forensics">
+                      <option value="Private Investigations">Private Investigations</option>
+                      <option value="Digital Forensics">Digital Forensics</option>
+                      <option value="Asset Tracing">Asset Tracing</option>
+                      <option value="Counter Surveillance (TSCM)">Counter Surveillance (TSCM)</option>
+                      <option value="Forensic Data Analysis">Forensic Data Analysis</option>
+                      <option value="Document Verification">Document Verification</option>
+                      <option value="Handwriting Verification">Handwriting Verification</option>
+                      <option value="Signature Verification">Signature Verification</option>
+                    </optgroup>
+                    <optgroup label="General">
+                      <option value="General Corporate Consultation">General Corporate Consultation</option>
+                    </optgroup>
                   </select>
                 </div>
 
@@ -270,78 +302,6 @@ export const Contact: React.FC = () => {
                 </button>
               </form>
             )}
-          </div>
-
-          {/* Regional Desks & Direct Channels */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            {/* In-Person Advisory Facility Visual */}
-            <div 
-              style={{ 
-                borderRadius: '20px', 
-                overflow: 'hidden', 
-                border: '1px solid rgba(255, 255, 255, 0.9)', 
-                boxShadow: '0 12px 32px rgba(0, 0, 0, 0.06)',
-                background: '#FFFFFF'
-              }}
-            >
-              <div className="contact-facility-img">
-                <img
-                  src="/IMG_8558.jpg"
-                  alt="Herrlich Group Confidential Consultation and Intake Suites"
-                  style={{ objectPosition: 'center 38%' }}
-                  loading="lazy"
-                />
-              </div>
-              <div style={{ padding: '16px 20px' }}>
-                <div style={{ fontSize: '14.5px', fontWeight: 650, color: '#1D1D1F' }}>
-                  Secure In-Person Consultation Cabins
-                </div>
-                <div style={{ fontSize: '12.5px', color: '#6E6E73', marginTop: '4px' }}>
-                  Acoustically shielded executive briefing rooms for privileged client intake.
-                </div>
-              </div>
-            </div>
-
-            <div className="solid-card" style={{ padding: '28px', background: '#FFFFFF' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
-                <MapPin size={18} color="#0071E3" />
-                <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#1D1D1F' }}>
-                  Metropolitan Advisory Desks
-                </h3>
-              </div>
-              <p style={{ fontSize: '13.5px', color: '#6E6E73', lineHeight: 1.6, marginBottom: '16px' }}>
-                Regional partner representations for on-ground client coordination and document examination:
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '13.5px', color: '#1D1D1F' }}>
-                <div style={{ padding: '10px 14px', background: 'var(--bg-primary)', borderRadius: '10px' }}>
-                  <strong>New Delhi NCR Desk:</strong> Connaught Place / Aerocity District
-                </div>
-                <div style={{ padding: '10px 14px', background: 'var(--bg-primary)', borderRadius: '10px' }}>
-                  <strong>Mumbai Financial Center:</strong> Bandra Kurla Complex (BKC)
-                </div>
-                <div style={{ padding: '10px 14px', background: 'var(--bg-primary)', borderRadius: '10px' }}>
-                  <strong>Bengaluru Technology Corridor:</strong> Outer Ring Road Precinct
-                </div>
-              </div>
-              <div style={{ fontSize: '11.5px', color: '#86868B', marginTop: '12px', fontStyle: 'italic' }}>
-                Note: Operational desks maintain strict access control. In-person partner consultations require prior security registration.
-              </div>
-            </div>
-
-            <div className="solid-card" style={{ padding: '28px', background: '#FFFFFF' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-                <Mail size={18} color="#0071E3" />
-                <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#1D1D1F' }}>
-                  Encrypted Digital Despatch
-                </h3>
-              </div>
-              <p style={{ fontSize: '13.5px', color: '#6E6E73', lineHeight: 1.55, marginBottom: '12px' }}>
-                For high-sensitivity whistleblower evidence dossiers, we provide secure SFTP dropboxes and end-to-end PGP key exchanges upon preliminary partner verification.
-              </p>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: '#1D1D1F' }}>
-                intake@herrlichgroup.com
-              </div>
-            </div>
           </div>
         </div>
       </div>

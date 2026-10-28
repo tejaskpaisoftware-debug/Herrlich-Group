@@ -15,7 +15,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
           <div>
             <div className="eyebrow-badge">
               <Sparkles size={13} color="#0071E3" />
-              <span>TRUST. INTELLIGENCE. STRATEGY.</span>
+              <span>INTEGRITY. PREVENTION. CORPORATE ACCOUNTABILITY.</span>
             </div>
 
             <h1 className="hero-headline">
@@ -23,23 +23,40 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
             </h1>
 
             <p className="hero-subhead">
-              Discover a smarter approach to complex business challenges through informed insights, professional expertise, and solutions designed around your objectives.
+              Herrlich Group combines proactive preventive governance and evidentiary detective forensics to uncover facts, safeguard corporate assets, and protect enterprise integrity.
             </p>
 
             <div className="hero-actions">
-              <Link to="/services" className="btn-primary">
-                <span>Explore Our Services</span>
+              <Link to="/preventive-forensics" className="btn-primary">
+                <span>Preventive Forensics</span>
                 <ArrowRight size={15} />
               </Link>
 
-              <button
-                type="button"
-                className="btn-secondary"
-                onClick={onOpenConsultation}
-              >
-                <span>Talk to Our Team</span>
+              <Link to="/detective-forensics" className="btn-secondary">
+                <span>Detective Forensics</span>
                 <ArrowUpRight size={15} />
-              </button>
+              </Link>
+
+              {onOpenConsultation && (
+                <button
+                  type="button"
+                  onClick={onOpenConsultation}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#0071E3',
+                    fontSize: '13.5px',
+                    fontWeight: 650,
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    padding: '8px 4px'
+                  }}
+                >
+                  <span>Request Consultation →</span>
+                </button>
+              )}
             </div>
 
             {/* Micro Trust Indicators */}

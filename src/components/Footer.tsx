@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Lock, ArrowUpRight } from 'lucide-react';
-import { mainNavItems, servicesDropdownItems } from '../data/navigation';
+import { Lock, MapPin, Mail } from 'lucide-react';
+import { mainNavItems } from '../data/navigation';
 import logoImg from '../assets/logo.png';
 
 export const Footer: React.FC = () => {
@@ -31,15 +31,48 @@ export const Footer: React.FC = () => {
 
           {/* Practice Areas */}
           <div>
-            <h4 className="footer-title">Practice Areas</h4>
+            <h4 className="footer-title">Forensic Practices</h4>
             <ul className="footer-links">
-              {servicesDropdownItems.map((s) => (
-                <li key={s.name}>
-                  <Link to={s.href} className="footer-link">
-                    {s.name}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link to="/preventive-forensics" className="footer-link" style={{ fontWeight: 600, color: '#0071E3' }}>
+                  Preventive Forensics Suite →
+                </Link>
+              </li>
+              <li>
+                <Link to="/preventive-forensics#fraud-risk-assessment" className="footer-link">
+                  Fraud Risk Assessment
+                </Link>
+              </li>
+              <li>
+                <Link to="/preventive-forensics#whistleblowing-mechanism" className="footer-link">
+                  Whistleblowing Mechanism
+                </Link>
+              </li>
+              <li>
+                <Link to="/preventive-forensics#prevention-of-insider-trading" className="footer-link">
+                  Prevention of Insider Trading
+                </Link>
+              </li>
+              <li style={{ marginTop: '10px' }}>
+                <Link to="/detective-forensics" className="footer-link" style={{ fontWeight: 600, color: '#0071E3' }}>
+                  Detective Forensics Suite →
+                </Link>
+              </li>
+              <li>
+                <Link to="/detective-forensics#private-investigations" className="footer-link">
+                  Private Investigations
+                </Link>
+              </li>
+              <li>
+                <Link to="/detective-forensics#digital-forensics" className="footer-link">
+                  Digital Forensics
+                </Link>
+              </li>
+              <li>
+                <Link to="/detective-forensics#asset-tracing" className="footer-link">
+                  Asset Tracing
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -62,34 +95,68 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Advisory Inquiries */}
+          {/* Corporate Office & Branch Inquiries */}
           <div>
-            <h4 className="footer-title">Consultation Channels</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13.5px', color: '#6E6E73' }}>
-              <div>
-                <div style={{ fontWeight: 600, color: '#1D1D1F', marginBottom: '2px' }}>Corporate Enquiries</div>
-                <div>advisory@herrlichgroup.com</div>
+            <h4 className="footer-title">Corporate Office</h4>
+            
+            <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start', fontSize: '13px', color: '#555558', lineHeight: 1.55, marginBottom: '16px' }}>
+              <MapPin size={16} color="#0071E3" style={{ flexShrink: 0, marginTop: '3px' }} />
+              <span>
+                1210-12, Vihav CBD, Near Bright School, Opposite Nyara Petrol pump, TP3, Vasna Bhaily Road, Vadodara 391410, Gujarat, India
+              </span>
+            </div>
+
+            <div style={{ marginBottom: '16px' }}>
+              <div style={{ fontSize: '11px', fontWeight: 650, color: '#86868B', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>
+                Corporate Contact
               </div>
-              <div style={{ marginTop: '6px' }}>
-                <div style={{ fontWeight: 600, color: '#1D1D1F', marginBottom: '2px' }}>Operational Desks</div>
-                <div>New Delhi • Mumbai • Bengaluru</div>
+              <a 
+                href="mailto:contact@herrlichindia.com" 
+                style={{ 
+                  display: 'inline-flex', 
+                  alignItems: 'center', 
+                  gap: '6px', 
+                  fontSize: '13px', 
+                  fontWeight: 600, 
+                  color: '#0071E3',
+                  textDecoration: 'none' 
+                }}
+              >
+                <Mail size={13} />
+                <span>contact@herrlichindia.com</span>
+              </a>
+            </div>
+
+            <div>
+              <div style={{ fontSize: '11px', fontWeight: 650, color: '#86868B', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
+                Branch Offices
               </div>
-              <div style={{ marginTop: '10px' }}>
-                <Link 
-                  to="/contact" 
-                  style={{ 
-                    display: 'inline-flex', 
-                    alignItems: 'center', 
-                    gap: '4px', 
-                    fontSize: '13px', 
-                    fontWeight: 600, 
-                    color: '#0071E3' 
-                  }}
-                >
-                  <span>Transmit Confidential Scope</span>
-                  <ArrowUpRight size={13} />
-                </Link>
-              </div>
+              <ul className="footer-links" style={{ display: 'flex', flexDirection: 'column', gap: '5px', fontSize: '12px', padding: 0, margin: 0 }}>
+                <li>
+                  <a href="mailto:Ahmedabad@herrlichindia.com" className="footer-link" style={{ display: 'inline-flex', gap: '4px' }}>
+                    <span style={{ fontWeight: 600, color: '#1D1D1F' }}>Ahmedabad:</span>
+                    <span>Ahmedabad@herrlichindia.com</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:Gurgaon@herrlichindia.com" className="footer-link" style={{ display: 'inline-flex', gap: '4px' }}>
+                    <span style={{ fontWeight: 600, color: '#1D1D1F' }}>Gurgaon:</span>
+                    <span>Gurgaon@herrlichindia.com</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:Dubai@herrlichindia.com" className="footer-link" style={{ display: 'inline-flex', gap: '4px' }}>
+                    <span style={{ fontWeight: 600, color: '#1D1D1F' }}>Dubai:</span>
+                    <span>Dubai@herrlichindia.com</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:Thailand@herrlichindia.com" className="footer-link" style={{ display: 'inline-flex', gap: '4px' }}>
+                    <span style={{ fontWeight: 600, color: '#1D1D1F' }}>Thailand:</span>
+                    <span>Thailand@herrlichindia.com</span>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

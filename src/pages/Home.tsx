@@ -4,10 +4,7 @@ import { TrustSection } from '../components/TrustSection';
 import { AboutSection } from '../components/AboutSection';
 import { ServicesSection } from '../components/ServicesSection';
 import { IndustriesSection } from '../components/IndustriesSection';
-import { WhyChooseUs } from '../components/WhyChooseUs';
 import { ProcessSection } from '../components/ProcessSection';
-import { InsightsSection } from '../components/InsightsSection';
-import { ContactSection } from '../components/ContactSection';
 
 interface HomeProps {
   onOpenConsultation?: () => void;
@@ -26,10 +23,7 @@ export const Home: React.FC<HomeProps> = ({ onOpenConsultation }) => {
       <AboutSection />
       <ServicesSection />
       <IndustriesSection />
-      <WhyChooseUs />
       <ProcessSection />
-      <InsightsSection />
-      <ContactSection />
     </>
   );
 };

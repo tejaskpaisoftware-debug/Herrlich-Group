@@ -10,8 +10,9 @@ import { SplashScreen } from './components/SplashScreen';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Services } from './pages/Services';
+import { PreventiveForensics } from './pages/PreventiveForensics';
+import { DetectiveForensics } from './pages/DetectiveForensics';
 import { Industries } from './pages/Industries';
-import { Insights } from './pages/Insights';
 import { Contact } from './pages/Contact';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 
@@ -112,8 +113,9 @@ export function App() {
             <Route path="/" element={<Home onOpenConsultation={() => setConsultationModalOpen(true)} />} />
             <Route path="/about" element={<About onOpenConsultation={() => setConsultationModalOpen(true)} />} />
             <Route path="/services" element={<Services onOpenConsultation={() => setConsultationModalOpen(true)} />} />
+            <Route path="/preventive-forensics" element={<PreventiveForensics onOpenConsultation={() => setConsultationModalOpen(true)} />} />
+            <Route path="/detective-forensics" element={<DetectiveForensics onOpenConsultation={() => setConsultationModalOpen(true)} />} />
             <Route path="/industries" element={<Industries onOpenConsultation={() => setConsultationModalOpen(true)} />} />
-            <Route path="/insights" element={<Insights />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             {/* Catch-all fallback route */}
