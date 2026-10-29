@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  background-color: #EDEDF0;
+  background-color: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
   overflow-x: hidden;
@@ -22,31 +22,19 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: #EDEDF0;
+  background-color: var(--bg-primary);
   overflow-x: hidden;
 }
 
 .app-container {
   width: 100%;
-  max-width: 1440px;
-  margin-inline: auto;
+  max-width: 100%;
   position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: var(--bg-primary);
-  box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
   overflow-x: hidden;
-}
-
-@media (max-width: 1440px) {
-  body, #root {
-    background-color: var(--bg-primary);
-  }
-  .app-container {
-    box-shadow: none;
-    max-width: 100%;
-  }
 }
 
 main {
@@ -117,8 +105,6 @@ main {
   left: 0;
   right: 0;
   width: 100%;
-  max-width: 1440px;
-  margin-inline: auto;
   z-index: 1000;
   pointer-events: none;
   display: flex;
