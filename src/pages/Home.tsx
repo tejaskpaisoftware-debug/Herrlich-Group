@@ -3,7 +3,6 @@ import { Hero } from '../components/Hero';
 import { TrustSection } from '../components/TrustSection';
 import { AboutSection } from '../components/AboutSection';
 import { ServicesSection } from '../components/ServicesSection';
-import { IndustriesSection } from '../components/IndustriesSection';
 import { ProcessSection } from '../components/ProcessSection';
 
 interface HomeProps {
@@ -22,7 +21,6 @@ export const Home: React.FC<HomeProps> = ({ onOpenConsultation }) => {
       <TrustSection />
       <AboutSection />
       <ServicesSection />
-      <IndustriesSection />
       <ProcessSection />
     </>
   );
