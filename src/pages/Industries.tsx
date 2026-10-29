@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ShoppingCart, 
@@ -31,6 +31,7 @@ import {
   AlertCircle,
   Briefcase,
   ChevronRight,
+  ChevronLeft,
   Maximize2,
   X
 } from 'lucide-react';
@@ -73,6 +74,66 @@ interface IndustriesPageProps {
 export const Industries: React.FC<IndustriesPageProps> = ({ onOpenConsultation }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+
+  const pillsRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeftPos, setScrollLeftPos] = useState(0);
+  const hasDragged = useRef(false);
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!pillsRef.current) return;
+    setIsDragging(true);
+    hasDragged.current = false;
+    setStartX(e.pageX - pillsRef.current.offsetLeft);
+    setScrollLeftPos(pillsRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDragging || !pillsRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - pillsRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    if (Math.abs(walk) > 4) {
+      hasDragged.current = true;
+    }
+    pillsRef.current.scrollLeft = scrollLeftPos - walk;
+  };
+
+  const scrollPills = (direction: 'left' | 'right') => {
+    if (pillsRef.current) {
+      const amount = direction === 'left' ? -280 : 280;
+      pillsRef.current.scrollBy({ left: amount, behavior: 'smooth' });
+    }
+  };
+
+  const handlePillWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (pillsRef.current && e.deltaY !== 0) {
+      pillsRef.current.scrollLeft += e.deltaY;
+    }
+  };
+
+  const scrollToSector = (id: string) => {
+    if (hasDragged.current) return;
+    const el = document.getElementById(id);
+    if (el) {
+      const yOffset = -90;
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      if ((window as any).__lenis) {
+        (window as any).__lenis.scrollTo(y, { immediate: false, duration: 0.8 });
+      } else {
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+  };
 
   useEffect(() => {
     document.title = 'Industries Catering | HERRLICH GROUP';
@@ -172,13 +233,14 @@ export const Industries: React.FC<IndustriesPageProps> = ({ onOpenConsultation }
           })}
         </div>
 
-        {/* Featured Visual Infographic Card & Overview */}
+        {/* Featured Visual Infographic Card & Overview - Modern Apple Aesthetic */}
         <div 
           style={{
-            background: 'linear-gradient(135deg, #1D1D1F 0%, #2C2C2E 100%)',
+            background: '#FFFFFF',
             borderRadius: '24px',
-            padding: 'clamp(28px, 4vw, 48px)',
-            color: '#FFFFFF',
+            border: '1px solid rgba(0, 0, 0, 0.08)',
+            boxShadow: '0 16px 44px rgba(0, 0, 0, 0.05)',
+            padding: 'clamp(26px, 4vw, 44px)',
             marginBottom: '56px',
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
@@ -186,60 +248,68 @@ export const Industries: React.FC<IndustriesPageProps> = ({ onOpenConsultation }
             alignItems: 'center'
           }}
         >
+          {/* Left Content Column */}
           <div>
-            <div style={{ fontSize: '11px', fontWeight: 750, color: '#0071E3', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>
-              PROPRIETARY SECTOR INTELLIGENCE
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '18px' }}>
+              <span style={{ padding: '6px 14px', borderRadius: 'var(--radius-pill)', background: 'rgba(0, 113, 227, 0.08)', color: '#0071E3', fontSize: '12px', fontWeight: 650 }}>
+                Industry Focused Approach
+              </span>
+              <span style={{ padding: '6px 14px', borderRadius: 'var(--radius-pill)', background: 'rgba(255, 149, 0, 0.08)', color: '#FF9500', fontSize: '12px', fontWeight: 650 }}>
+                Actionable Intelligence
+              </span>
+              <span style={{ padding: '6px 14px', borderRadius: 'var(--radius-pill)', background: 'rgba(52, 199, 89, 0.08)', color: '#34C759', fontSize: '12px', fontWeight: 650 }}>
+                Risk Mitigation & Compliance
+              </span>
+              <span style={{ padding: '6px 14px', borderRadius: 'var(--radius-pill)', background: 'rgba(88, 86, 214, 0.08)', color: '#5856D6', fontSize: '12px', fontWeight: 650 }}>
+                Trusted by Leading Organisations
+              </span>
             </div>
-            <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 700, color: '#FFFFFF', lineHeight: 1.25, marginBottom: '16px' }}>
+
+            <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 700, color: '#1D1D1F', lineHeight: 1.25, marginBottom: '16px' }}>
               Multi-Sector Diagnostic Capabilities
             </h2>
-            <p style={{ fontSize: '15px', color: 'rgba(255, 255, 255, 0.8)', lineHeight: 1.65, marginBottom: '20px' }}>
+            <p style={{ fontSize: '15px', color: '#555558', lineHeight: 1.65, marginBottom: '18px' }}>
               Our operational teams evaluate each engagement through the lens of industry-specific threat models. Whether conducting covert asset recovery in heavy cement distribution or forensic digital extractions in semiconductor R&D, our methodologies are structured to withstand board and judicial scrutiny.
             </p>
-            <p style={{ fontSize: '13.5px', color: 'rgba(255, 255, 255, 0.65)', lineHeight: 1.6, marginBottom: '28px' }}>
+            <p style={{ fontSize: '13.5px', color: '#86868B', lineHeight: 1.6, marginBottom: '24px' }}>
               The architecture chart maps all 20 specialized industry practices catered to by Herrlich Group, combining fact-finding, brand protection, and evidentiary forensics.
             </p>
+
+            {/* 4 Feature Highlights */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))', gap: '12px', marginBottom: '28px' }}>
+              <div style={{ padding: '14px 16px', borderRadius: '16px', background: '#F5F5F7', border: '1px solid rgba(0,0,0,0.06)' }}>
+                <div style={{ fontSize: '11px', color: '#6E6E73', fontWeight: 650, textTransform: 'uppercase' }}>Scope</div>
+                <div style={{ fontSize: '16px', fontWeight: 750, color: '#0071E3' }}>20 Core Sectors</div>
+              </div>
+              <div style={{ padding: '14px 16px', borderRadius: '16px', background: '#F5F5F7', border: '1px solid rgba(0,0,0,0.06)' }}>
+                <div style={{ fontSize: '11px', color: '#6E6E73', fontWeight: 650, textTransform: 'uppercase' }}>Methodology</div>
+                <div style={{ fontSize: '16px', fontWeight: 750, color: '#34C759' }}>Preventive & Detective</div>
+              </div>
+              <div style={{ padding: '14px 16px', borderRadius: '16px', background: '#F5F5F7', border: '1px solid rgba(0,0,0,0.06)' }}>
+                <div style={{ fontSize: '11px', color: '#6E6E73', fontWeight: 650, textTransform: 'uppercase' }}>Standards</div>
+                <div style={{ fontSize: '16px', fontWeight: 750, color: '#5856D6' }}>Evidentiary Rigor</div>
+              </div>
+              <div style={{ padding: '14px 16px', borderRadius: '16px', background: '#F5F5F7', border: '1px solid rgba(0,0,0,0.06)' }}>
+                <div style={{ fontSize: '11px', color: '#6E6E73', fontWeight: 650, textTransform: 'uppercase' }}>Integrity</div>
+                <div style={{ fontSize: '16px', fontWeight: 750, color: '#FF9500' }}>Strict Firewalls</div>
+              </div>
+            </div>
 
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
               <button
                 type="button"
                 onClick={() => setIsLightboxOpen(true)}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '13px 24px',
-                  borderRadius: 'var(--radius-pill)',
-                  background: '#0071E3',
-                  color: '#FFFFFF',
-                  fontSize: '13.5px',
-                  fontWeight: 600,
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'all 160ms ease',
-                  boxShadow: '0 4px 14px rgba(0, 113, 227, 0.35)'
-                }}
+                className="btn-primary"
+                style={{ padding: '12px 24px', fontSize: '13.5px', gap: '8px' }}
               >
                 <Maximize2 size={15} />
-                <span>Open Full-Screen Chart</span>
+                <span>View Full-Screen Chart</span>
               </button>
               <button
                 type="button"
                 onClick={onOpenConsultation}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '13px 24px',
-                  borderRadius: 'var(--radius-pill)',
-                  background: 'rgba(255, 255, 255, 0.12)',
-                  color: '#FFFFFF',
-                  fontSize: '13.5px',
-                  fontWeight: 600,
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  cursor: 'pointer',
-                  transition: 'all 160ms ease'
-                }}
+                className="btn-secondary"
+                style={{ padding: '12px 24px', fontSize: '13.5px', gap: '8px' }}
               >
                 <span>Request Sector Briefing</span>
                 <ArrowUpRight size={14} />
@@ -247,18 +317,20 @@ export const Industries: React.FC<IndustriesPageProps> = ({ onOpenConsultation }
             </div>
           </div>
 
-          {/* Full Infographic Display - Clean, No Blue Container or Border */}
+          {/* Right Image Display - Clean, Modern Apple Frame */}
           <div 
             onClick={() => setIsLightboxOpen(true)}
             style={{ 
               position: 'relative',
-              borderRadius: '18px',
+              borderRadius: '20px',
               overflow: 'hidden',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 16px 40px rgba(0, 0, 0, 0.35)'
+              boxShadow: '0 12px 36px rgba(0, 0, 0, 0.08)',
+              border: '1px solid rgba(0, 0, 0, 0.08)',
+              background: '#FFFFFF'
             }}
           >
             <img 
@@ -266,11 +338,11 @@ export const Industries: React.FC<IndustriesPageProps> = ({ onOpenConsultation }
               alt="Herrlich Group Industries Catering Architecture Infographic"
               style={{
                 width: '100%',
-                maxHeight: '660px',
+                maxHeight: '620px',
                 height: 'auto',
                 objectFit: 'contain',
                 display: 'block',
-                borderRadius: '18px',
+                borderRadius: '20px',
                 transition: 'transform 260ms ease'
               }}
               onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.015)')}
@@ -281,28 +353,30 @@ export const Industries: React.FC<IndustriesPageProps> = ({ onOpenConsultation }
                 position: 'absolute',
                 bottom: '16px',
                 right: '16px',
-                background: 'rgba(0, 0, 0, 0.75)',
-                backdropFilter: 'blur(8px)',
-                color: '#FFFFFF',
+                background: 'rgba(255, 255, 255, 0.94)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                color: '#1D1D1F',
+                border: '1px solid rgba(0, 0, 0, 0.1)',
                 padding: '7px 14px',
                 borderRadius: 'var(--radius-pill)',
                 fontSize: '11.5px',
-                fontWeight: 600,
+                fontWeight: 650,
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
-                border: '1px solid rgba(255, 255, 255, 0.2)'
+                boxShadow: '0 4px 14px rgba(0, 0, 0, 0.08)'
               }}
             >
-              <Maximize2 size={13} />
-              <span>Full Screen</span>
+              <Maximize2 size={13} color="#0071E3" />
+              <span>Click for Full Resolution</span>
             </div>
           </div>
         </div>
 
         {/* Search & Sector Jump Pills */}
         <div style={{ marginBottom: '40px' }}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '16px', marginBottom: '20px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '16px', marginBottom: '18px' }}>
             <div>
               <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#1D1D1F', margin: 0 }}>
                 20 Core Practice Sectors
@@ -354,49 +428,141 @@ export const Industries: React.FC<IndustriesPageProps> = ({ onOpenConsultation }
             </div>
           </div>
 
-          {/* Quick Jump Badges */}
-          <div 
-            style={{ 
-              display: 'flex', 
-              flexWrap: 'wrap', 
-              gap: '8px', 
-              padding: '4px 0' 
-            }}
-          >
-            {industriesData.map((ind) => (
-              <a
-                key={ind.id}
-                href={`#${ind.id}`}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  padding: '7px 14px',
-                  borderRadius: 'var(--radius-pill)',
-                  background: '#FFFFFF',
-                  border: '1px solid rgba(0, 0, 0, 0.08)',
-                  fontSize: '12.5px',
-                  fontWeight: 550,
-                  color: '#424245',
-                  textDecoration: 'none',
-                  transition: 'all 160ms ease',
-                  boxShadow: '0 2px 6px rgba(0,0,0,0.02)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#0071E3';
-                  e.currentTarget.style.color = '#0071E3';
-                  e.currentTarget.style.transform = 'translateY(-1px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)';
-                  e.currentTarget.style.color = '#424245';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}
-              >
-                <span style={{ fontSize: '11px', fontWeight: 700, color: '#0071E3' }}>{ind.number}.</span>
-                <span>{ind.title}</span>
-              </a>
-            ))}
+          {/* Side Scrollable Sector Pills with Chevron Navigation & Drag Support */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', position: 'relative' }}>
+            <button
+              type="button"
+              onClick={() => scrollPills('left')}
+              aria-label="Scroll left"
+              style={{
+                flexShrink: 0,
+                width: '36px',
+                height: '36px',
+                borderRadius: '50%',
+                background: '#FFFFFF',
+                border: '1px solid rgba(0, 0, 0, 0.1)',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                color: '#1D1D1F',
+                transition: 'all 160ms ease',
+                zIndex: 2
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#0071E3';
+                e.currentTarget.style.color = '#0071E3';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.1)';
+                e.currentTarget.style.color = '#1D1D1F';
+              }}
+            >
+              <ChevronLeft size={18} />
+            </button>
+
+            <div
+              ref={pillsRef}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              onWheel={handlePillWheel}
+              style={{
+                display: 'flex',
+                gap: '10px',
+                overflowX: 'auto',
+                whiteSpace: 'nowrap',
+                padding: '6px 2px',
+                scrollbarWidth: 'none',
+                WebkitOverflowScrolling: 'touch',
+                cursor: isDragging ? 'grabbing' : 'grab',
+                userSelect: 'none',
+                flex: 1
+              }}
+            >
+              {industriesData.map((ind) => (
+                <button
+                  key={ind.id}
+                  type="button"
+                  onClick={() => scrollToSector(ind.id)}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '9px 18px',
+                    borderRadius: 'var(--radius-pill)',
+                    background: '#FFFFFF',
+                    border: '1px solid rgba(0, 0, 0, 0.08)',
+                    fontSize: '13px',
+                    fontWeight: 600,
+                    color: '#1D1D1F',
+                    whiteSpace: 'nowrap',
+                    cursor: isDragging ? 'grabbing' : 'pointer',
+                    flexShrink: 0,
+                    transition: 'all 160ms ease',
+                    boxShadow: '0 2px 6px rgba(0, 0, 0, 0.02)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#0071E3';
+                    e.currentTarget.style.color = '#0071E3';
+                    e.currentTarget.style.transform = 'translateY(-1px)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(0, 113, 227, 0.12)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)';
+                    e.currentTarget.style.color = '#1D1D1F';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.02)';
+                  }}
+                >
+                  <span style={{ 
+                    fontSize: '11px', 
+                    fontWeight: 750, 
+                    color: '#0071E3',
+                    background: 'rgba(0, 113, 227, 0.08)',
+                    padding: '2px 8px',
+                    borderRadius: '8px'
+                  }}>
+                    {ind.number}
+                  </span>
+                  <span>{ind.title}</span>
+                </button>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={() => scrollPills('right')}
+              aria-label="Scroll right"
+              style={{
+                flexShrink: 0,
+                width: '36px',
+                height: '36px',
+                borderRadius: '50%',
+                background: '#FFFFFF',
+                border: '1px solid rgba(0, 0, 0, 0.1)',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                color: '#1D1D1F',
+                transition: 'all 160ms ease',
+                zIndex: 2
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#0071E3';
+                e.currentTarget.style.color = '#0071E3';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.1)';
+                e.currentTarget.style.color = '#1D1D1F';
+              }}
+            >
+              <ChevronRight size={18} />
+            </button>
           </div>
         </div>
 
