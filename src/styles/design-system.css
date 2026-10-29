@@ -354,15 +354,12 @@ button {
   50% { transform: translateY(-6px); }
 }
 
-@keyframes warmLightSpin {
+@keyframes smallWarmOrbit {
   0% {
-    transform: rotate(0deg) scale(1);
-  }
-  50% {
-    transform: rotate(180deg) scale(1.08);
+    transform: rotate(0deg) translateX(110px) rotate(0deg);
   }
   100% {
-    transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) translateX(110px) rotate(-360deg);
   }
 }
 

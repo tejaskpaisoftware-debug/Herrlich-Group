@@ -317,28 +317,29 @@ export const Industries: React.FC<IndustriesPageProps> = ({ onOpenConsultation }
             </div>
           </div>
 
-          {/* Right Image Display with Rotating Warm Light Animation & Clean Lower Button */}
+          {/* Right Image Display with Subtle Small Warm Light & Clean Lower Button */}
           <div style={{ position: 'relative', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             
-            {/* Ambient Rotating Warm Light Glow */}
+            {/* Small Rotating Warm Light Orb in Background */}
             <div 
               style={{
                 position: 'absolute',
-                top: '-24px',
-                left: '-24px',
-                right: '-24px',
-                bottom: '36px',
-                borderRadius: '38px',
-                background: 'conic-gradient(from 0deg, rgba(245, 158, 11, 0.48) 0deg, rgba(251, 146, 60, 0.38) 60deg, rgba(253, 230, 138, 0.50) 120deg, rgba(234, 179, 8, 0.42) 180deg, rgba(249, 115, 22, 0.35) 240deg, rgba(254, 215, 170, 0.52) 300deg, rgba(245, 158, 11, 0.48) 360deg)',
-                filter: 'blur(36px)',
-                opacity: 0.85,
+                top: '50%',
+                left: '50%',
+                width: '140px',
+                height: '140px',
+                marginTop: '-70px',
+                marginLeft: '-70px',
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(255, 185, 90, 0.50) 0%, rgba(255, 150, 50, 0.20) 50%, transparent 75%)',
+                filter: 'blur(22px)',
                 zIndex: 0,
                 pointerEvents: 'none',
-                animation: 'warmLightSpin 12s linear infinite'
+                animation: 'smallWarmOrbit 9s linear infinite'
               }}
             />
 
-            {/* Clean Image Card (Unobstructed full infographic) */}
+            {/* Clean Image Card */}
             <div 
               onClick={() => setIsLightboxOpen(true)}
               style={{ 
@@ -351,18 +352,18 @@ export const Industries: React.FC<IndustriesPageProps> = ({ onOpenConsultation }
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 16px 40px rgba(245, 158, 11, 0.15), 0 4px 18px rgba(0, 0, 0, 0.04)',
-                border: '1px solid rgba(245, 158, 11, 0.35)',
+                boxShadow: '0 12px 32px rgba(0, 0, 0, 0.06)',
+                border: '1px solid rgba(0, 0, 0, 0.08)',
                 background: '#FFFFFF',
                 transition: 'transform 260ms ease, box-shadow 260ms ease'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-2px) scale(1.01)';
-                e.currentTarget.style.boxShadow = '0 22px 50px rgba(245, 158, 11, 0.22), 0 8px 24px rgba(0, 0, 0, 0.06)';
+                e.currentTarget.style.boxShadow = '0 18px 40px rgba(0, 0, 0, 0.09)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.boxShadow = '0 16px 40px rgba(245, 158, 11, 0.15), 0 4px 18px rgba(0, 0, 0, 0.04)';
+                e.currentTarget.style.boxShadow = '0 12px 32px rgba(0, 0, 0, 0.06)';
               }}
             >
               <img 
@@ -388,14 +389,12 @@ export const Industries: React.FC<IndustriesPageProps> = ({ onOpenConsultation }
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: '9px 22px',
+                  padding: '9px 20px',
                   borderRadius: 'var(--radius-pill)',
-                  background: 'rgba(255, 255, 255, 0.96)',
-                  backdropFilter: 'blur(12px)',
-                  WebkitBackdropFilter: 'blur(12px)',
+                  background: '#FFFFFF',
                   color: '#1D1D1F',
-                  border: '1px solid rgba(245, 158, 11, 0.45)',
-                  boxShadow: '0 4px 16px rgba(245, 158, 11, 0.14)',
+                  border: '1px solid rgba(0, 0, 0, 0.08)',
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
                   fontSize: '12.5px',
                   fontWeight: 650,
                   cursor: 'pointer',
@@ -405,13 +404,13 @@ export const Industries: React.FC<IndustriesPageProps> = ({ onOpenConsultation }
                   e.currentTarget.style.borderColor = '#0071E3';
                   e.currentTarget.style.color = '#0071E3';
                   e.currentTarget.style.transform = 'translateY(-1px)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 113, 227, 0.18)';
+                  e.currentTarget.style.boxShadow = '0 6px 18px rgba(0, 113, 227, 0.14)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(245, 158, 11, 0.45)';
+                  e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)';
                   e.currentTarget.style.color = '#1D1D1F';
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(245, 158, 11, 0.14)';
+                  e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.04)';
                 }}
               >
                 <Maximize2 size={13} color="#0071E3" />
