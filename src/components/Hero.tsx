@@ -86,6 +86,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
                 width="640"
                 height="480"
                 loading="eager"
+                decoding="async"
+                fetchPriority="high"
               />
             </div>
           </div>

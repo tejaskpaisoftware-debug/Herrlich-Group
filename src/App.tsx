@@ -24,14 +24,15 @@ function SmoothScroll({ isPaused }: { isPaused: boolean }) {
   const { pathname, hash } = useLocation();
 
   React.useEffect(() => {
+    const isTouch = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
     const lenis = new Lenis({
-      duration: 1.4, // Luxuriously smooth, cinematic decelerating curve
+      duration: isTouch ? 1.0 : 1.3, // Snappier response on mobile touch, luxurious on desktop
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Apple exponential easing
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.75, // Controls & reduces scrolling speed for that deliberate Apple feel
-      touchMultiplier: 1.2,
+      wheelMultiplier: 0.82,
+      touchMultiplier: 1.5,
       infinite: false,
     });
 

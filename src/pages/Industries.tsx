@@ -394,6 +394,8 @@ export const Industries: React.FC<IndustriesPageProps> = ({ onOpenConsultation }
                 <img 
                   src="/industries_catering_infographic.jpg" 
                   alt="Herrlich Group Industries Catering Architecture Infographic"
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     width: '100%',
                     maxHeight: '620px',

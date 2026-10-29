@@ -192,6 +192,7 @@ export const About: React.FC<AboutProps> = ({ onOpenConsultation }) => {
                 alt="Herrlich Group Journey and Services Wall"
                 style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -451,6 +452,8 @@ export const About: React.FC<AboutProps> = ({ onOpenConsultation }) => {
               <img 
                 src="/clientele_illustrative_infographic.jpg" 
                 alt="Herrlich Group Our Clientele Illustrative Infographic"
+                loading="lazy"
+                decoding="async"
                 style={{
                   width: '100%',
                   maxHeight: '580px',
@@ -606,6 +609,7 @@ export const About: React.FC<AboutProps> = ({ onOpenConsultation }) => {
                 alt="Herrlich Group Corporate Practice Entities and Associates Wall"
                 style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -692,6 +696,7 @@ export const About: React.FC<AboutProps> = ({ onOpenConsultation }) => {
                   alt="Herrlich Group Advanced Forensic Analysis Workstations"
                   style={{ objectPosition: 'center 40%' }}
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div style={{ padding: '28px 24px' }}>
@@ -721,6 +726,7 @@ export const About: React.FC<AboutProps> = ({ onOpenConsultation }) => {
                   alt="Herrlich Group Privileged Consultation and Intake Suites"
                   style={{ objectPosition: 'center 35%' }}
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div style={{ padding: '28px 24px' }}>

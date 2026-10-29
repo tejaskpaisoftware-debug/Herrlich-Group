@@ -14,6 +14,7 @@ export const AboutSection: React.FC = () => {
                 src="/IMG_8565.jpg"
                 alt="Herrlich Group meeting and conference facility"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
