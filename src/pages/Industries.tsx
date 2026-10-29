@@ -317,59 +317,106 @@ export const Industries: React.FC<IndustriesPageProps> = ({ onOpenConsultation }
             </div>
           </div>
 
-          {/* Right Image Display - Clean, Modern Apple Frame */}
-          <div 
-            onClick={() => setIsLightboxOpen(true)}
-            style={{ 
-              position: 'relative',
-              borderRadius: '20px',
-              overflow: 'hidden',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 12px 36px rgba(0, 0, 0, 0.08)',
-              border: '1px solid rgba(0, 0, 0, 0.08)',
-              background: '#FFFFFF'
-            }}
-          >
-            <img 
-              src="/industries_catering_infographic.jpg" 
-              alt="Herrlich Group Industries Catering Architecture Infographic"
-              style={{
-                width: '100%',
-                maxHeight: '620px',
-                height: 'auto',
-                objectFit: 'contain',
-                display: 'block',
-                borderRadius: '20px',
-                transition: 'transform 260ms ease'
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.015)')}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-            />
+          {/* Right Image Display with Rotating Warm Light Animation & Clean Lower Button */}
+          <div style={{ position: 'relative', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            
+            {/* Ambient Rotating Warm Light Glow */}
             <div 
               style={{
                 position: 'absolute',
-                bottom: '16px',
-                right: '16px',
-                background: 'rgba(255, 255, 255, 0.94)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                color: '#1D1D1F',
-                border: '1px solid rgba(0, 0, 0, 0.1)',
-                padding: '7px 14px',
-                borderRadius: 'var(--radius-pill)',
-                fontSize: '11.5px',
-                fontWeight: 650,
+                top: '-24px',
+                left: '-24px',
+                right: '-24px',
+                bottom: '36px',
+                borderRadius: '38px',
+                background: 'conic-gradient(from 0deg, rgba(245, 158, 11, 0.48) 0deg, rgba(251, 146, 60, 0.38) 60deg, rgba(253, 230, 138, 0.50) 120deg, rgba(234, 179, 8, 0.42) 180deg, rgba(249, 115, 22, 0.35) 240deg, rgba(254, 215, 170, 0.52) 300deg, rgba(245, 158, 11, 0.48) 360deg)',
+                filter: 'blur(36px)',
+                opacity: 0.85,
+                zIndex: 0,
+                pointerEvents: 'none',
+                animation: 'warmLightSpin 12s linear infinite'
+              }}
+            />
+
+            {/* Clean Image Card (Unobstructed full infographic) */}
+            <div 
+              onClick={() => setIsLightboxOpen(true)}
+              style={{ 
+                position: 'relative',
+                zIndex: 1,
+                width: '100%',
+                borderRadius: '20px',
+                overflow: 'hidden',
+                cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '6px',
-                boxShadow: '0 4px 14px rgba(0, 0, 0, 0.08)'
+                justifyContent: 'center',
+                boxShadow: '0 16px 40px rgba(245, 158, 11, 0.15), 0 4px 18px rgba(0, 0, 0, 0.04)',
+                border: '1px solid rgba(245, 158, 11, 0.35)',
+                background: '#FFFFFF',
+                transition: 'transform 260ms ease, box-shadow 260ms ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px) scale(1.01)';
+                e.currentTarget.style.boxShadow = '0 22px 50px rgba(245, 158, 11, 0.22), 0 8px 24px rgba(0, 0, 0, 0.06)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                e.currentTarget.style.boxShadow = '0 16px 40px rgba(245, 158, 11, 0.15), 0 4px 18px rgba(0, 0, 0, 0.04)';
               }}
             >
-              <Maximize2 size={13} color="#0071E3" />
-              <span>Click for Full Resolution</span>
+              <img 
+                src="/industries_catering_infographic.jpg" 
+                alt="Herrlich Group Industries Catering Architecture Infographic"
+                style={{
+                  width: '100%',
+                  maxHeight: '620px',
+                  height: 'auto',
+                  objectFit: 'contain',
+                  display: 'block',
+                  borderRadius: '20px'
+                }}
+              />
+            </div>
+
+            {/* "Click for Full Resolution" button placed cleanly NICHE (BELOW) the image */}
+            <div style={{ position: 'relative', zIndex: 1, marginTop: '16px', display: 'flex', justifyContent: 'center', width: '100%' }}>
+              <button
+                type="button"
+                onClick={() => setIsLightboxOpen(true)}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '9px 22px',
+                  borderRadius: 'var(--radius-pill)',
+                  background: 'rgba(255, 255, 255, 0.96)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  color: '#1D1D1F',
+                  border: '1px solid rgba(245, 158, 11, 0.45)',
+                  boxShadow: '0 4px 16px rgba(245, 158, 11, 0.14)',
+                  fontSize: '12.5px',
+                  fontWeight: 650,
+                  cursor: 'pointer',
+                  transition: 'all 180ms ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = '#0071E3';
+                  e.currentTarget.style.color = '#0071E3';
+                  e.currentTarget.style.transform = 'translateY(-1px)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 113, 227, 0.18)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(245, 158, 11, 0.45)';
+                  e.currentTarget.style.color = '#1D1D1F';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(245, 158, 11, 0.14)';
+                }}
+              >
+                <Maximize2 size={13} color="#0071E3" />
+                <span>Click for Full Resolution</span>
+              </button>
             </div>
           </div>
         </div>
