@@ -372,7 +372,7 @@ export const About: React.FC<AboutProps> = ({ onOpenConsultation }) => {
               boxShadow: '0 16px 44px rgba(0, 0, 0, 0.05)',
               padding: 'clamp(24px, 4vw, 44px)',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
               gap: '40px',
               alignItems: 'center'
             }}
@@ -402,7 +402,7 @@ export const About: React.FC<AboutProps> = ({ onOpenConsultation }) => {
               </p>
 
               {/* 4 Scale Tiers Summary */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '28px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))', gap: '14px', marginBottom: '28px' }}>
                 <div style={{ padding: '14px 16px', borderRadius: '16px', background: '#F5F5F7', border: '1px solid rgba(0,0,0,0.06)' }}>
                   <div style={{ fontSize: '11px', color: '#6E6E73', fontWeight: 650, textTransform: 'uppercase' }}>Enterprise Tier 1</div>
                   <div style={{ fontSize: '16px', fontWeight: 750, color: '#0071E3' }}>Clients &gt; ₹20,000 Cr</div>
@@ -503,7 +503,7 @@ export const About: React.FC<AboutProps> = ({ onOpenConsultation }) => {
           </div>
 
           {/* 8 Core Functional Area Cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '24px', marginBottom: '40px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '24px', marginBottom: '40px' }}>
             {functionalAreas.map((area) => {
               const Icon = area.icon;
               return (

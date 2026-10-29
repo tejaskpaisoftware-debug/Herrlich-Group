@@ -181,7 +181,7 @@ export const Industries: React.FC<IndustriesPageProps> = ({ onOpenConsultation }
             color: '#FFFFFF',
             marginBottom: '56px',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
             gap: '40px',
             alignItems: 'center'
           }}
@@ -401,7 +401,7 @@ export const Industries: React.FC<IndustriesPageProps> = ({ onOpenConsultation }
         </div>
 
         {/* 20 Industry Deep-Dive Cards Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '28px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '28px' }}>
           {filteredIndustries.map((ind) => {
             const Icon = industryIconMap[ind.iconName] || Briefcase;
 

@@ -1,10 +1,16 @@
 @import './design-system.css';
 
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
-  background-color: var(--bg-primary);
+  background-color: #EDEDF0;
   color: var(--text-primary);
   min-height: 100vh;
   overflow-x: hidden;
+  max-width: 100%;
   line-height: 1.55;
   letter-spacing: -0.011em;
 }
@@ -12,19 +18,35 @@ body {
 #root {
   min-height: 100vh;
   width: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: var(--bg-primary);
+  background-color: #EDEDF0;
+  overflow-x: hidden;
 }
 
 .app-container {
   width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
   position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: var(--bg-primary);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+  overflow-x: hidden;
+}
+
+@media (max-width: 1440px) {
+  body, #root {
+    background-color: var(--bg-primary);
+  }
+  .app-container {
+    box-shadow: none;
+    max-width: 100%;
+  }
 }
 
 main {
@@ -95,6 +117,8 @@ main {
   left: 0;
   right: 0;
   width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
   z-index: 1000;
   pointer-events: none;
   display: flex;

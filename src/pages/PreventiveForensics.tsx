@@ -344,7 +344,7 @@ export const PreventiveForensics: React.FC<PreventiveForensicsProps> = ({ onOpen
           </div>
 
           {/* Grid: What Our Approach Delivers (Left) & Systematic Methodology (Right) */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px', marginBottom: '40px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 290px), 1fr))', gap: '40px', marginBottom: '40px' }}>
             {/* Left: How our approach helps */}
             <div style={{ background: '#FBFBFD', borderRadius: '18px', padding: '28px', border: '1px solid rgba(0,0,0,0.04)' }}>
               <div style={{ fontSize: '11.5px', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#86868B', marginBottom: '16px' }}>

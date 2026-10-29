@@ -285,7 +285,7 @@ export const Services: React.FC<ServicesPageProps> = ({ onOpenConsultation }) =>
           </div>
 
           {/* 2-Column Details: Helps & Methodology */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '36px', marginBottom: '36px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 290px), 1fr))', gap: '36px', marginBottom: '36px' }}>
             <div style={{ background: '#FBFBFD', borderRadius: '18px', padding: '26px', border: '1px solid rgba(0,0,0,0.04)' }}>
               <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#86868B', marginBottom: '14px' }}>
                 Key Capabilities & Impact
