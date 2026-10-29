@@ -317,67 +317,93 @@ export const Industries: React.FC<IndustriesPageProps> = ({ onOpenConsultation }
             </div>
           </div>
 
-          {/* Right Image Display with Subtle Small Warm Light & Clean Lower Button */}
+          {/* Right Image Display with Animated Rotating Warm Border Light & Clean Lower Button */}
           <div style={{ position: 'relative', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             
-            {/* Small Rotating Warm Light Orb in Background */}
-            <div 
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                width: '140px',
-                height: '140px',
-                marginTop: '-70px',
-                marginLeft: '-70px',
-                borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(255, 185, 90, 0.50) 0%, rgba(255, 150, 50, 0.20) 50%, transparent 75%)',
-                filter: 'blur(22px)',
-                zIndex: 0,
-                pointerEvents: 'none',
-                animation: 'smallWarmOrbit 9s linear infinite'
-              }}
-            />
-
-            {/* Clean Image Card */}
+            {/* Animated Rotating Warm Light Border Frame */}
             <div 
               onClick={() => setIsLightboxOpen(true)}
               style={{ 
                 position: 'relative',
-                zIndex: 1,
                 width: '100%',
-                borderRadius: '20px',
+                borderRadius: '22px',
+                padding: '2.5px', // 2.5px track for the rotating warm light beam
                 overflow: 'hidden',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 12px 32px rgba(0, 0, 0, 0.06)',
-                border: '1px solid rgba(0, 0, 0, 0.08)',
-                background: '#FFFFFF',
+                background: 'rgba(0, 0, 0, 0.06)',
+                boxShadow: '0 12px 36px rgba(0, 0, 0, 0.06)',
                 transition: 'transform 260ms ease, box-shadow 260ms ease'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-2px) scale(1.01)';
-                e.currentTarget.style.boxShadow = '0 18px 40px rgba(0, 0, 0, 0.09)';
+                e.currentTarget.style.boxShadow = '0 18px 44px rgba(245, 158, 11, 0.20), 0 8px 24px rgba(0, 0, 0, 0.08)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.boxShadow = '0 12px 32px rgba(0, 0, 0, 0.06)';
+                e.currentTarget.style.boxShadow = '0 12px 36px rgba(0, 0, 0, 0.06)';
               }}
             >
-              <img 
-                src="/industries_catering_infographic.jpg" 
-                alt="Herrlich Group Industries Catering Architecture Infographic"
+              {/* Rotating Warm Light Beam */}
+              <div 
                 style={{
-                  width: '100%',
-                  maxHeight: '620px',
-                  height: 'auto',
-                  objectFit: 'contain',
-                  display: 'block',
-                  borderRadius: '20px'
+                  position: 'absolute',
+                  width: '240%',
+                  height: '240%',
+                  top: '-70%',
+                  left: '-70%',
+                  background: 'conic-gradient(from 0deg, transparent 0deg, transparent 20deg, rgba(255, 180, 50, 0.95) 50deg, rgba(255, 220, 100, 1) 70deg, rgba(255, 140, 20, 0.85) 90deg, transparent 120deg, transparent 360deg)',
+                  animation: 'rotateBorderBeam 5s linear infinite',
+                  pointerEvents: 'none',
+                  zIndex: 0
                 }}
               />
+
+              {/* Subtle soft warm glow around the border beam */}
+              <div 
+                style={{
+                  position: 'absolute',
+                  width: '240%',
+                  height: '240%',
+                  top: '-70%',
+                  left: '-70%',
+                  background: 'conic-gradient(from 0deg, transparent 0deg, transparent 25deg, rgba(255, 180, 50, 0.6) 55deg, rgba(255, 220, 100, 0.8) 70deg, rgba(255, 140, 20, 0.5) 85deg, transparent 115deg, transparent 360deg)',
+                  filter: 'blur(8px)',
+                  animation: 'rotateBorderBeam 5s linear infinite',
+                  pointerEvents: 'none',
+                  zIndex: 0
+                }}
+              />
+
+              {/* Inner White Card */}
+              <div 
+                style={{ 
+                  position: 'relative',
+                  zIndex: 1,
+                  width: '100%',
+                  borderRadius: '19.5px',
+                  overflow: 'hidden',
+                  background: '#FFFFFF',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <img 
+                  src="/industries_catering_infographic.jpg" 
+                  alt="Herrlich Group Industries Catering Architecture Infographic"
+                  style={{
+                    width: '100%',
+                    maxHeight: '620px',
+                    height: 'auto',
+                    objectFit: 'contain',
+                    display: 'block',
+                    borderRadius: '19.5px'
+                  }}
+                />
+              </div>
             </div>
 
             {/* "Click for Full Resolution" button placed cleanly NICHE (BELOW) the image */}

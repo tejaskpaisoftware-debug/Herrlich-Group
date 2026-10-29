@@ -354,12 +354,12 @@ button {
   50% { transform: translateY(-6px); }
 }
 
-@keyframes smallWarmOrbit {
-  0% {
-    transform: rotate(0deg) translateX(110px) rotate(0deg);
+@keyframes rotateBorderBeam {
+  from {
+    transform: rotate(0deg);
   }
-  100% {
-    transform: rotate(360deg) translateX(110px) rotate(-360deg);
+  to {
+    transform: rotate(360deg);
   }
 }
 
